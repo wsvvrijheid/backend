@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_meta_metadata",
+  "info": {
+    "name": "Metadata",
+    "icon": "tag",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string",
+      "required": true
+    },
+    "metaDescription": {
+      "type": "string",
+      "required": true
+    },
+    "twitterCardType": {
+      "type": "enumeration",
+      "enum": ["summary", "summary_large_image", "app", "player"]
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": ["images"],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}

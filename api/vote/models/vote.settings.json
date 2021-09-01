@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "votes",
+  "info": {
+    "name": "Vote"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "value": {
+      "type": "integer"
+    },
+    "voter": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "votes"
+    },
+    "application": {
+      "via": "votes",
+      "model": "application"
+    }
+  }
+}
