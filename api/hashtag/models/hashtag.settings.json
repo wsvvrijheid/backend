@@ -76,9 +76,9 @@
       "via": "hashtags",
       "model": "page"
     },
-    "tweets": {
+    "posts": {
       "via": "hashtag",
-      "collection": "tweet"
+      "collection": "hashtag-post"
     }
   }
 }
