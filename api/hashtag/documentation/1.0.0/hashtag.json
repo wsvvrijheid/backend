@@ -663,15 +663,15 @@
               }
             }
           },
-          "tweets": {
+          "posts": {
             "type": "array",
             "items": {
-              "required": ["id", "tweet"],
+              "required": ["id"],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "tweet": {
+                "text": {
                   "type": "string"
                 },
                 "slug": {
@@ -733,7 +733,7 @@
                 "page": {
                   "type": "string"
                 },
-                "tweets": {
+                "posts": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -791,7 +791,7 @@
           "page": {
             "type": "string"
           },
-          "tweets": {
+          "posts": {
             "type": "array",
             "items": {
               "type": "string"

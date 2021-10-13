@@ -739,7 +739,7 @@
                 "page": {
                   "type": "string"
                 },
-                "tweets": {
+                "posts": {
                   "type": "array",
                   "items": {
                     "type": "string"
