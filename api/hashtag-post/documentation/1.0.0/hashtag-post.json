@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/tweets": {
+    "/hashtag-posts": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,9 +10,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Tweet"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -50,7 +51,7 @@
           }
         },
         "summary": "",
-        "tags": ["Tweet"],
+        "tags": ["Hashtag-post"],
         "parameters": [
           {
             "name": "_limit",
@@ -199,70 +200,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Tweet"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": ["Tweet"],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewTweet"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/tweets/count": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
                   "properties": {
-                    "count": {
-                      "type": "integer"
+                    "foo": {
+                      "type": "string"
                     }
                   }
                 }
@@ -301,11 +241,21 @@
           }
         },
         "summary": "",
-        "tags": ["Tweet"],
-        "parameters": []
+        "tags": ["Hashtag-post"],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewHashtag-post"
+              }
+            }
+          }
+        }
       }
     },
-    "/tweets/{id}": {
+    "/hashtag-posts/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -315,7 +265,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Tweet"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -352,7 +306,62 @@
           }
         },
         "summary": "",
-        "tags": ["Tweet"],
+        "tags": ["Hashtag-post"],
+        "parameters": []
+      }
+    },
+    "/hashtag-posts/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": ["Hashtag-post"],
         "parameters": [
           {
             "name": "id",
@@ -375,7 +384,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Tweet"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -412,14 +425,14 @@
           }
         },
         "summary": "",
-        "tags": ["Tweet"],
+        "tags": ["Hashtag-post"],
         "requestBody": {
           "description": "",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewTweet"
+                "$ref": "#/components/schemas/NewHashtag-post"
               }
             }
           }
@@ -484,7 +497,7 @@
           }
         },
         "summary": "",
-        "tags": ["Tweet"],
+        "tags": ["Hashtag-post"],
         "parameters": [
           {
             "name": "id",
@@ -502,15 +515,14 @@
   },
   "components": {
     "schemas": {
-      "Tweet": {
-        "required": ["id", "tweet"],
+      "Hashtag-post": {
+        "required": ["id"],
         "properties": {
           "id": {
             "type": "string"
           },
-          "tweet": {
-            "type": "string",
-            "maxLength": 280
+          "text": {
+            "type": "string"
           },
           "slug": {
             "type": "uid"
@@ -609,7 +621,7 @@
               "page": {
                 "type": "string"
               },
-              "tweets": {
+              "posts": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -638,12 +650,12 @@
           "localizations": {
             "type": "array",
             "items": {
-              "required": ["id", "tweet"],
+              "required": ["id"],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "tweet": {
+                "text": {
                   "type": "string"
                 },
                 "slug": {
@@ -685,12 +697,10 @@
           }
         }
       },
-      "NewTweet": {
-        "required": ["tweet"],
+      "NewHashtag-post": {
         "properties": {
-          "tweet": {
-            "type": "string",
-            "maxLength": 280
+          "text": {
+            "type": "string"
           },
           "slug": {
             "type": "uid"
@@ -721,9 +731,5 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Tweet"
-    }
-  ]
+  "tags": []
 }

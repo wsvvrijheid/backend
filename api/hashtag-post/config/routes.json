@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/tweets",
-      "handler": "tweet.find",
+      "path": "/hashtag-posts",
+      "handler": "hashtag-post.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/tweets/count",
-      "handler": "tweet.count",
+      "path": "/hashtag-posts/count",
+      "handler": "hashtag-post.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/tweets/:id",
-      "handler": "tweet.findOne",
+      "path": "/hashtag-posts/:id",
+      "handler": "hashtag-post.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/tweets",
-      "handler": "tweet.create",
+      "path": "/hashtag-posts",
+      "handler": "hashtag-post.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/tweets/:id",
-      "handler": "tweet.update",
+      "path": "/hashtag-posts/:id",
+      "handler": "hashtag-post.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/tweets/:id",
-      "handler": "tweet.delete",
+      "path": "/hashtag-posts/:id",
+      "handler": "hashtag-post.delete",
       "config": {
         "policies": []
       }
