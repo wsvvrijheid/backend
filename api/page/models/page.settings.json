@@ -73,8 +73,8 @@
       "collection": "competition"
     },
     "hashtags": {
-      "collection": "hashtag",
-      "via": "page"
+      "via": "page",
+      "collection": "hashtag"
     },
     "metadata": {
       "type": "component",
