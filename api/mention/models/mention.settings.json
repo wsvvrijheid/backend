@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mentions",
+  "info": {
+    "name": "Mention",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "username": {
+      "type": "uid"
+    },
+    "user_data": {
+      "type": "json"
+    },
+    "country": {
+      "type": "enumeration",
+      "enum": ["turkey", "netherlands", "germany"]
+    },
+    "category": {
+      "type": "string"
+    }
+  }
+}
