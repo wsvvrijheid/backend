@@ -3713,7 +3713,7 @@ cross-env@^7.0.3:
   dependencies:
     cross-spawn "^7.0.1"
 
-cross-fetch@^3.0.4:
+cross-fetch@^3.0.0, cross-fetch@^3.0.4:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.4.tgz#9723f3a3a247bf8b89039f3a380a9244e8fa2f39"
   integrity sha512-1eAtFWdIubi6T4XPy6ei9iUFoKpUkIF971QLN8lIvvvwueI65+Nw5haMNKUwfJxabqlIIDODJKGrQ66gxC0PbQ==
@@ -7741,6 +7741,11 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
+oauth-1.0a@^2.2.4:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/oauth-1.0a/-/oauth-1.0a-2.2.6.tgz#eadbccdb3bceea412d24586e6f39b2b412f0e491"
+  integrity sha512-6bkxv3N4Gu5lty4viIcIAnq5GbxECviMBeKR3WX/q87SPQ8E8aursPZUtsXDnxCs787af09WPRBLqYrf/lwoYQ==
+
 oauth-sign@^0.9.0, oauth-sign@~0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
@@ -10432,6 +10437,13 @@ strapi-helper-plugin@3.6.8:
     styled-components "^5.2.3"
     whatwg-fetch "^3.6.2"
 
+strapi-hook-twitter@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/strapi-hook-twitter/-/strapi-hook-twitter-3.0.5.tgz#af4579592e568547b627fac7b0b0e254c80aa03d"
+  integrity sha512-lumiUvSmhBSwkw4wTyVh6ajoJzmBp7rTjFcGrk48CEOAWm8DnTkMXeBKETxAx7fK0XxhMH16r8iyGS7unAp8lw==
+  dependencies:
+    twitter-lite "^0.14.0"
+
 strapi-plugin-content-manager@3.6.8:
   version "3.6.8"
   resolved "https://registry.yarnpkg.com/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.6.8.tgz#fe46aeea0b55bbdc9d06c6c9fcdf27cdfee29a31"
@@ -11267,6 +11279,22 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
+
+twitter-lite@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/twitter-lite/-/twitter-lite-0.14.0.tgz#5ec32d31e693007572d060858f2746ac8aed1a7d"
+  integrity sha512-AP7jnuEBIMA18fi3IDWT7fTOJVpZrl1ZwJKunGf2iknKv5BH4mpwBvJmu3RP59XHZFL3ckUcGGRw/INVRikBBg==
+  dependencies:
+    cross-fetch "^3.0.0"
+    oauth-1.0a "^2.2.4"
+
+twitter-lite@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/twitter-lite/-/twitter-lite-1.1.0.tgz#77f250cc73f14ecc5a493ddb81ff0a3e9ae72680"
+  integrity sha512-v37I0zyYXjn3/zdm/ii+1RiBFZ2SCB3wLl1N5nfW8TUqoNDYBR66oXBFbQavKEvjg5WqcTUzNhAhe6FkgylPsw==
+  dependencies:
+    cross-fetch "^3.0.0"
+    oauth-1.0a "^2.2.4"
 
 type-fest@^0.21.3:
   version "0.21.3"
