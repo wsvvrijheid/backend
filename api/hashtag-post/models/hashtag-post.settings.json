@@ -22,7 +22,8 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "slug": {
       "pluginOptions": {
@@ -31,6 +32,8 @@
         }
       },
       "type": "uid",
+      "maxLength": 30,
+      "required": true,
       "targetField": "text"
     },
     "image": {
@@ -38,7 +41,7 @@
       "via": "related",
       "allowedTypes": ["images"],
       "plugin": "upload",
-      "required": false,
+      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true

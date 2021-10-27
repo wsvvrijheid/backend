@@ -503,7 +503,7 @@
   "components": {
     "schemas": {
       "Mention": {
-        "required": ["id"],
+        "required": ["id", "username"],
         "properties": {
           "id": {
             "type": "string"
@@ -528,6 +528,7 @@
         }
       },
       "NewMention": {
+        "required": ["username"],
         "properties": {
           "username": {
             "type": "uid"

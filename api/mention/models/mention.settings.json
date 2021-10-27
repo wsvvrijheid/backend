@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "username": {
-      "type": "uid"
+      "type": "uid",
+      "required": true
     },
     "user_data": {
       "type": "json"

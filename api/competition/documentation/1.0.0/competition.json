@@ -503,7 +503,15 @@
   "components": {
     "schemas": {
       "Competition": {
-        "required": ["id"],
+        "required": [
+          "id",
+          "title",
+          "slug",
+          "content",
+          "image",
+          "start",
+          "metadata"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -512,15 +520,98 @@
             "type": "string"
           },
           "slug": {
-            "type": "uid"
+            "type": "uid",
+            "maxLength": 30
           },
           "content": {
             "type": "string"
           },
+          "image": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "start": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time"
+          },
           "applications": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id",
+                "title",
+                "slug",
+                "content",
+                "image",
+                "metadata"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -549,6 +640,9 @@
                     "type": "string"
                   }
                 },
+                "metadata": {
+                  "type": "component"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -571,7 +665,15 @@
             }
           },
           "page": {
-            "required": ["id", "title", "slug"],
+            "required": [
+              "id",
+              "title",
+              "slug",
+              "content",
+              "image",
+              "type",
+              "metadata"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -619,9 +721,6 @@
               "metadata": {
                 "type": "component"
               },
-              "dynamic": {
-                "type": "dynamiczone"
-              },
               "localizations": {
                 "type": "array",
                 "items": {
@@ -642,17 +741,9 @@
               }
             }
           },
-          "start": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "end": {
-            "type": "string",
-            "format": "date-time"
-          },
           "metadata": {
             "type": "object",
-            "required": ["id", "metaTitle", "metaDescription", "image"],
+            "required": ["id", "metaTitle", "metaDescription"],
             "properties": {
               "id": {
                 "type": "string"
@@ -662,84 +753,21 @@
               },
               "metaDescription": {
                 "type": "string"
-              },
-              "twitterCardType": {
-                "type": "string",
-                "enum": ["summary", "summary_large_image", "app", "player"]
-              },
-              "image": {
-                "required": [
-                  "id",
-                  "name",
-                  "hash",
-                  "mime",
-                  "size",
-                  "url",
-                  "provider"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "alternativeText": {
-                    "type": "string"
-                  },
-                  "caption": {
-                    "type": "string"
-                  },
-                  "width": {
-                    "type": "integer"
-                  },
-                  "height": {
-                    "type": "integer"
-                  },
-                  "formats": {
-                    "type": "object"
-                  },
-                  "hash": {
-                    "type": "string"
-                  },
-                  "ext": {
-                    "type": "string"
-                  },
-                  "mime": {
-                    "type": "string"
-                  },
-                  "size": {
-                    "type": "number"
-                  },
-                  "url": {
-                    "type": "string"
-                  },
-                  "previewUrl": {
-                    "type": "string"
-                  },
-                  "provider": {
-                    "type": "string"
-                  },
-                  "provider_metadata": {
-                    "type": "object"
-                  },
-                  "related": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
               }
             }
           },
           "localizations": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id",
+                "title",
+                "slug",
+                "content",
+                "image",
+                "start",
+                "metadata"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -753,6 +781,15 @@
                 "content": {
                   "type": "string"
                 },
+                "image": {
+                  "type": "string"
+                },
+                "start": {
+                  "type": "string"
+                },
+                "end": {
+                  "type": "string"
+                },
                 "applications": {
                   "type": "array",
                   "items": {
@@ -760,12 +797,6 @@
                   }
                 },
                 "page": {
-                  "type": "string"
-                },
-                "start": {
-                  "type": "string"
-                },
-                "end": {
                   "type": "string"
                 },
                 "metadata": {
@@ -802,23 +833,16 @@
         }
       },
       "NewCompetition": {
+        "required": ["title", "slug", "content", "start", "metadata"],
         "properties": {
           "title": {
             "type": "string"
           },
           "slug": {
-            "type": "uid"
+            "type": "uid",
+            "maxLength": 30
           },
           "content": {
-            "type": "string"
-          },
-          "applications": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "page": {
             "type": "string"
           },
           "start": {
@@ -829,9 +853,18 @@
             "type": "string",
             "format": "date-time"
           },
+          "applications": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "page": {
+            "type": "string"
+          },
           "metadata": {
             "type": "object",
-            "required": ["id", "metaTitle", "metaDescription", "image"],
+            "required": ["id", "metaTitle", "metaDescription"],
             "properties": {
               "id": {
                 "type": "string"
@@ -841,77 +874,6 @@
               },
               "metaDescription": {
                 "type": "string"
-              },
-              "twitterCardType": {
-                "type": "string",
-                "enum": ["summary", "summary_large_image", "app", "player"]
-              },
-              "image": {
-                "required": [
-                  "id",
-                  "name",
-                  "hash",
-                  "mime",
-                  "size",
-                  "url",
-                  "provider"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "alternativeText": {
-                    "type": "string"
-                  },
-                  "caption": {
-                    "type": "string"
-                  },
-                  "width": {
-                    "type": "integer"
-                  },
-                  "height": {
-                    "type": "integer"
-                  },
-                  "formats": {
-                    "type": "object"
-                  },
-                  "hash": {
-                    "type": "string"
-                  },
-                  "ext": {
-                    "type": "string"
-                  },
-                  "mime": {
-                    "type": "string"
-                  },
-                  "size": {
-                    "type": "number"
-                  },
-                  "url": {
-                    "type": "string"
-                  },
-                  "previewUrl": {
-                    "type": "string"
-                  },
-                  "provider": {
-                    "type": "string"
-                  },
-                  "provider_metadata": {
-                    "type": "object"
-                  },
-                  "related": {
-                    "type": "string"
-                  },
-                  "created_by": {
-                    "type": "string"
-                  },
-                  "updated_by": {
-                    "type": "string"
-                  }
-                }
               }
             }
           },

@@ -32,7 +32,8 @@
         }
       },
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
     "content": {
       "pluginOptions": {
@@ -40,7 +41,8 @@
           "localized": true
         }
       },
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "type": {
       "pluginOptions": {
@@ -49,7 +51,8 @@
         }
       },
       "type": "enumeration",
-      "enum": ["announcement", "competition", "event", "hashtag", "news"]
+      "enum": ["announcement", "competition", "event", "hashtag", "news"],
+      "required": true
     },
     "start": {
       "pluginOptions": {
@@ -57,7 +60,8 @@
           "localized": false
         }
       },
-      "type": "datetime"
+      "type": "datetime",
+      "required": true
     },
     "end": {
       "pluginOptions": {
@@ -66,6 +70,18 @@
         }
       },
       "type": "datetime"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": ["images"],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "page": {
       "via": "subpages",
@@ -79,28 +95,8 @@
           "localized": true
         }
       },
-      "component": "meta.metadata"
-    },
-    "dynamic": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "dynamiczone",
-      "components": []
-    },
-    "image": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": ["images"],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
+      "component": "meta.metadata",
+      "required": true
     }
   }
 }

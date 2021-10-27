@@ -41,14 +41,15 @@
           "localized": true
         }
       },
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "image": {
       "model": "file",
       "via": "related",
       "allowedTypes": ["images"],
       "plugin": "upload",
-      "required": false,
+      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -62,7 +63,8 @@
         }
       },
       "type": "enumeration",
-      "enum": ["announcement", "competition", "event", "hashtag", "news"]
+      "enum": ["announcement", "competition", "event", "hashtag", "news"],
+      "required": true
     },
     "subpages": {
       "via": "page",
@@ -84,16 +86,8 @@
           "localized": true
         }
       },
-      "component": "meta.metadata"
-    },
-    "dynamic": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "dynamiczone",
-      "components": []
+      "component": "meta.metadata",
+      "required": true
     }
   }
 }

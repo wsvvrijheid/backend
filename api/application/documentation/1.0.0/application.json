@@ -503,7 +503,7 @@
   "components": {
     "schemas": {
       "Application": {
-        "required": ["id"],
+        "required": ["id", "title", "slug", "content", "image", "metadata"],
         "properties": {
           "id": {
             "type": "string"
@@ -512,7 +512,8 @@
             "type": "string"
           },
           "slug": {
-            "type": "uid"
+            "type": "uid",
+            "maxLength": 30
           },
           "content": {
             "type": "string"
@@ -638,7 +639,15 @@
             }
           },
           "competition": {
-            "required": ["id"],
+            "required": [
+              "id",
+              "title",
+              "slug",
+              "content",
+              "image",
+              "start",
+              "metadata"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -652,6 +661,15 @@
               "content": {
                 "type": "string"
               },
+              "image": {
+                "type": "string"
+              },
+              "start": {
+                "type": "string"
+              },
+              "end": {
+                "type": "string"
+              },
               "applications": {
                 "type": "array",
                 "items": {
@@ -659,12 +677,6 @@
                 }
               },
               "page": {
-                "type": "string"
-              },
-              "start": {
-                "type": "string"
-              },
-              "end": {
                 "type": "string"
               },
               "metadata": {
@@ -693,7 +705,7 @@
           "votes": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": ["id", "value"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -719,10 +731,32 @@
               }
             }
           },
+          "metadata": {
+            "type": "object",
+            "required": ["id", "metaTitle", "metaDescription"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "metaTitle": {
+                "type": "string"
+              },
+              "metaDescription": {
+                "type": "string"
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id",
+                "title",
+                "slug",
+                "content",
+                "image",
+                "metadata"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -750,6 +784,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "metadata": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -782,12 +819,14 @@
         }
       },
       "NewApplication": {
+        "required": ["title", "slug", "content", "metadata"],
         "properties": {
           "title": {
             "type": "string"
           },
           "slug": {
-            "type": "uid"
+            "type": "uid",
+            "maxLength": 30
           },
           "content": {
             "type": "string"
@@ -802,6 +841,21 @@
             "type": "array",
             "items": {
               "type": "string"
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "required": ["id", "metaTitle", "metaDescription"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "metaTitle": {
+                "type": "string"
+              },
+              "metaDescription": {
+                "type": "string"
+              }
             }
           },
           "localizations": {
