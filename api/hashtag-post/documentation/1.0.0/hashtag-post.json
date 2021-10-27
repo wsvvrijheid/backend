@@ -516,7 +516,7 @@
   "components": {
     "schemas": {
       "Hashtag-post": {
-        "required": ["id"],
+        "required": ["id", "text", "slug", "image"],
         "properties": {
           "id": {
             "type": "string"
@@ -525,7 +525,8 @@
             "type": "string"
           },
           "slug": {
-            "type": "uid"
+            "type": "uid",
+            "maxLength": 30
           },
           "image": {
             "required": [
@@ -595,7 +596,16 @@
             }
           },
           "hashtag": {
-            "required": ["id", "title", "hashtag", "hashtag_date"],
+            "required": [
+              "id",
+              "title",
+              "slug",
+              "content",
+              "image",
+              "date",
+              "hashtag",
+              "metadata"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -606,16 +616,16 @@
               "slug": {
                 "type": "uid"
               },
-              "hashtag": {
-                "type": "string"
-              },
-              "hashtag_date": {
-                "type": "string"
-              },
               "content": {
                 "type": "string"
               },
               "image": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "hashtag": {
                 "type": "string"
               },
               "page": {
@@ -626,6 +636,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "metadata": {
+                "type": "component"
               },
               "localizations": {
                 "type": "array",
@@ -650,7 +663,7 @@
           "localizations": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": ["id", "text", "slug", "image"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -698,12 +711,14 @@
         }
       },
       "NewHashtag-post": {
+        "required": ["text", "slug"],
         "properties": {
           "text": {
             "type": "string"
           },
           "slug": {
-            "type": "uid"
+            "type": "uid",
+            "maxLength": 30
           },
           "hashtag": {
             "type": "string"

@@ -503,7 +503,7 @@
   "components": {
     "schemas": {
       "Vote": {
-        "required": ["id"],
+        "required": ["id", "value"],
         "properties": {
           "id": {
             "type": "string"
@@ -565,7 +565,7 @@
             }
           },
           "application": {
-            "required": ["id"],
+            "required": ["id", "title", "slug", "content", "image", "metadata"],
             "properties": {
               "id": {
                 "type": "string"
@@ -594,6 +594,9 @@
                   "type": "string"
                 }
               },
+              "metadata": {
+                "type": "component"
+              },
               "localizations": {
                 "type": "array",
                 "items": {
@@ -621,6 +624,7 @@
         }
       },
       "NewVote": {
+        "required": ["value"],
         "properties": {
           "value": {
             "type": "integer"

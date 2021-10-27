@@ -32,7 +32,39 @@
         }
       },
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true,
+      "maxLength": 30
+    },
+    "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext",
+      "required": true
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": ["images"],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "date": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "datetime",
+      "required": true
     },
     "hashtag": {
       "pluginOptions": {
@@ -43,35 +75,6 @@
       "type": "string",
       "required": true
     },
-    "hashtag_date": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "datetime",
-      "required": true
-    },
-    "content": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "richtext"
-    },
-    "image": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": ["images"],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "page": {
       "via": "hashtags",
       "model": "page"
@@ -79,6 +82,17 @@
     "posts": {
       "via": "hashtag",
       "collection": "hashtag-post"
+    },
+    "metadata": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "meta.metadata",
+      "required": true
     }
   }
 }

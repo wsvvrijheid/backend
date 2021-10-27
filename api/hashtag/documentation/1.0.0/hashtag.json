@@ -503,7 +503,16 @@
   "components": {
     "schemas": {
       "Hashtag": {
-        "required": ["id", "title", "hashtag", "hashtag_date"],
+        "required": [
+          "id",
+          "title",
+          "slug",
+          "content",
+          "image",
+          "date",
+          "hashtag",
+          "metadata"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -512,14 +521,8 @@
             "type": "string"
           },
           "slug": {
-            "type": "uid"
-          },
-          "hashtag": {
-            "type": "string"
-          },
-          "hashtag_date": {
-            "type": "string",
-            "format": "date-time"
+            "type": "uid",
+            "maxLength": 30
           },
           "content": {
             "type": "string"
@@ -591,8 +594,23 @@
               }
             }
           },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "hashtag": {
+            "type": "string"
+          },
           "page": {
-            "required": ["id", "title", "slug"],
+            "required": [
+              "id",
+              "title",
+              "slug",
+              "content",
+              "image",
+              "type",
+              "metadata"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -640,9 +658,6 @@
               "metadata": {
                 "type": "component"
               },
-              "dynamic": {
-                "type": "dynamiczone"
-              },
               "localizations": {
                 "type": "array",
                 "items": {
@@ -666,7 +681,7 @@
           "posts": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": ["id", "text", "slug", "image"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -704,10 +719,34 @@
               }
             }
           },
+          "metadata": {
+            "type": "object",
+            "required": ["id", "metaTitle", "metaDescription"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "metaTitle": {
+                "type": "string"
+              },
+              "metaDescription": {
+                "type": "string"
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
-              "required": ["id", "title", "hashtag", "hashtag_date"],
+              "required": [
+                "id",
+                "title",
+                "slug",
+                "content",
+                "image",
+                "date",
+                "hashtag",
+                "metadata"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -718,16 +757,16 @@
                 "slug": {
                   "type": "uid"
                 },
-                "hashtag": {
-                  "type": "string"
-                },
-                "hashtag_date": {
-                  "type": "string"
-                },
                 "content": {
                   "type": "string"
                 },
                 "image": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "hashtag": {
                   "type": "string"
                 },
                 "page": {
@@ -738,6 +777,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "metadata": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -770,22 +812,23 @@
         }
       },
       "NewHashtag": {
-        "required": ["title", "hashtag", "hashtag_date"],
+        "required": ["title", "slug", "content", "date", "hashtag", "metadata"],
         "properties": {
           "title": {
             "type": "string"
           },
           "slug": {
-            "type": "uid"
+            "type": "uid",
+            "maxLength": 30
           },
-          "hashtag": {
+          "content": {
             "type": "string"
           },
-          "hashtag_date": {
+          "date": {
             "type": "string",
             "format": "date-time"
           },
-          "content": {
+          "hashtag": {
             "type": "string"
           },
           "page": {
@@ -795,6 +838,21 @@
             "type": "array",
             "items": {
               "type": "string"
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "required": ["id", "metaTitle", "metaDescription"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "metaTitle": {
+                "type": "string"
+              },
+              "metaDescription": {
+                "type": "string"
+              }
             }
           },
           "localizations": {

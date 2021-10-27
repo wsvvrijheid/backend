@@ -1219,7 +1219,14 @@
           "applications": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id",
+                "title",
+                "slug",
+                "content",
+                "image",
+                "metadata"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -1248,6 +1255,9 @@
                     "type": "string"
                   }
                 },
+                "metadata": {
+                  "type": "component"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -1272,7 +1282,7 @@
           "votes": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": ["id", "value"],
               "properties": {
                 "id": {
                   "type": "string"
