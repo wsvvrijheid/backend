@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/mentions/search",
+      "handler": "mention.search",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/mentions/:id",
       "handler": "mention.findOne",
       "config": {
