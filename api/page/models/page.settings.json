@@ -77,17 +77,6 @@
     "hashtags": {
       "via": "page",
       "collection": "hashtag"
-    },
-    "metadata": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "meta.metadata",
-      "required": true
     }
   }
 }
