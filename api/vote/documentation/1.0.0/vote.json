@@ -565,7 +565,7 @@
             }
           },
           "application": {
-            "required": ["id", "title", "slug", "content", "image", "metadata"],
+            "required": ["id", "title", "slug", "content", "image"],
             "properties": {
               "id": {
                 "type": "string"
@@ -593,9 +593,6 @@
                 "items": {
                   "type": "string"
                 }
-              },
-              "metadata": {
-                "type": "component"
               },
               "localizations": {
                 "type": "array",

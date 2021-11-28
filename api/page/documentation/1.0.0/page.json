@@ -503,15 +503,7 @@
   "components": {
     "schemas": {
       "Page": {
-        "required": [
-          "id",
-          "title",
-          "slug",
-          "content",
-          "image",
-          "type",
-          "metadata"
-        ],
+        "required": ["id", "title", "slug", "content", "image", "type"],
         "properties": {
           "id": {
             "type": "string"
@@ -606,8 +598,7 @@
                 "content",
                 "type",
                 "start",
-                "image",
-                "metadata"
+                "image"
               ],
               "properties": {
                 "id": {
@@ -644,9 +635,6 @@
                 "page": {
                   "type": "string"
                 },
-                "metadata": {
-                  "type": "component"
-                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -671,15 +659,7 @@
           "competitions": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "title",
-                "slug",
-                "content",
-                "image",
-                "start",
-                "metadata"
-              ],
+              "required": ["id", "title", "slug", "content", "image", "start"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -710,9 +690,6 @@
                 },
                 "page": {
                   "type": "string"
-                },
-                "metadata": {
-                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -745,8 +722,7 @@
                 "content",
                 "image",
                 "date",
-                "hashtag",
-                "metadata"
+                "hashtag"
               ],
               "properties": {
                 "id": {
@@ -779,9 +755,6 @@
                     "type": "string"
                   }
                 },
-                "metadata": {
-                  "type": "component"
-                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -803,33 +776,10 @@
               }
             }
           },
-          "metadata": {
-            "type": "object",
-            "required": ["id", "metaTitle", "metaDescription"],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "metaTitle": {
-                "type": "string"
-              },
-              "metaDescription": {
-                "type": "string"
-              }
-            }
-          },
           "localizations": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "title",
-                "slug",
-                "content",
-                "image",
-                "type",
-                "metadata"
-              ],
+              "required": ["id", "title", "slug", "content", "image", "type"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -874,9 +824,6 @@
                     "type": "string"
                   }
                 },
-                "metadata": {
-                  "type": "component"
-                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -908,7 +855,7 @@
         }
       },
       "NewPage": {
-        "required": ["title", "slug", "content", "type", "metadata"],
+        "required": ["title", "slug", "content", "type"],
         "properties": {
           "title": {
             "type": "string"
@@ -939,21 +886,6 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
-          },
-          "metadata": {
-            "type": "object",
-            "required": ["id", "metaTitle", "metaDescription"],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "metaTitle": {
-                "type": "string"
-              },
-              "metaDescription": {
-                "type": "string"
-              }
             }
           },
           "localizations": {

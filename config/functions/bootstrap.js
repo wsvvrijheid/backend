@@ -26,6 +26,6 @@ module.exports = async () => {
       }),
     )
   } catch (error) {
-    console.error('ERROR!!!', error)
+    console.error('Error while updating mention list', error)
   }
 }

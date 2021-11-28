@@ -510,8 +510,7 @@
           "content",
           "image",
           "date",
-          "hashtag",
-          "metadata"
+          "hashtag"
         ],
         "properties": {
           "id": {
@@ -602,15 +601,7 @@
             "type": "string"
           },
           "page": {
-            "required": [
-              "id",
-              "title",
-              "slug",
-              "content",
-              "image",
-              "type",
-              "metadata"
-            ],
+            "required": ["id", "title", "slug", "content", "image", "type"],
             "properties": {
               "id": {
                 "type": "string"
@@ -654,9 +645,6 @@
                 "items": {
                   "type": "string"
                 }
-              },
-              "metadata": {
-                "type": "component"
               },
               "localizations": {
                 "type": "array",
@@ -719,21 +707,6 @@
               }
             }
           },
-          "metadata": {
-            "type": "object",
-            "required": ["id", "metaTitle", "metaDescription"],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "metaTitle": {
-                "type": "string"
-              },
-              "metaDescription": {
-                "type": "string"
-              }
-            }
-          },
           "localizations": {
             "type": "array",
             "items": {
@@ -744,8 +717,7 @@
                 "content",
                 "image",
                 "date",
-                "hashtag",
-                "metadata"
+                "hashtag"
               ],
               "properties": {
                 "id": {
@@ -778,9 +750,6 @@
                     "type": "string"
                   }
                 },
-                "metadata": {
-                  "type": "component"
-                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -812,7 +781,7 @@
         }
       },
       "NewHashtag": {
-        "required": ["title", "slug", "content", "date", "hashtag", "metadata"],
+        "required": ["title", "slug", "content", "date", "hashtag"],
         "properties": {
           "title": {
             "type": "string"
@@ -838,21 +807,6 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
-          },
-          "metadata": {
-            "type": "object",
-            "required": ["id", "metaTitle", "metaDescription"],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "metaTitle": {
-                "type": "string"
-              },
-              "metaDescription": {
-                "type": "string"
-              }
             }
           },
           "localizations": {

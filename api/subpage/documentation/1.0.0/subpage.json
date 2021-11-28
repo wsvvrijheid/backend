@@ -510,8 +510,7 @@
           "content",
           "type",
           "start",
-          "image",
-          "metadata"
+          "image"
         ],
         "properties": {
           "id": {
@@ -606,15 +605,7 @@
             }
           },
           "page": {
-            "required": [
-              "id",
-              "title",
-              "slug",
-              "content",
-              "image",
-              "type",
-              "metadata"
-            ],
+            "required": ["id", "title", "slug", "content", "image", "type"],
             "properties": {
               "id": {
                 "type": "string"
@@ -659,9 +650,6 @@
                   "type": "string"
                 }
               },
-              "metadata": {
-                "type": "component"
-              },
               "localizations": {
                 "type": "array",
                 "items": {
@@ -682,21 +670,6 @@
               }
             }
           },
-          "metadata": {
-            "type": "object",
-            "required": ["id", "metaTitle", "metaDescription"],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "metaTitle": {
-                "type": "string"
-              },
-              "metaDescription": {
-                "type": "string"
-              }
-            }
-          },
           "localizations": {
             "type": "array",
             "items": {
@@ -707,8 +680,7 @@
                 "content",
                 "type",
                 "start",
-                "image",
-                "metadata"
+                "image"
               ],
               "properties": {
                 "id": {
@@ -745,9 +717,6 @@
                 "page": {
                   "type": "string"
                 },
-                "metadata": {
-                  "type": "component"
-                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -779,7 +748,7 @@
         }
       },
       "NewSubpage": {
-        "required": ["title", "slug", "content", "type", "start", "metadata"],
+        "required": ["title", "slug", "content", "type", "start"],
         "properties": {
           "title": {
             "type": "string"
@@ -804,21 +773,6 @@
           },
           "page": {
             "type": "string"
-          },
-          "metadata": {
-            "type": "object",
-            "required": ["id", "metaTitle", "metaDescription"],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "metaTitle": {
-                "type": "string"
-              },
-              "metaDescription": {
-                "type": "string"
-              }
-            }
           },
           "localizations": {
             "type": "array",

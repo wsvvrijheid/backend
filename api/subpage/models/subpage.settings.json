@@ -86,17 +86,6 @@
     "page": {
       "via": "subpages",
       "model": "page"
-    },
-    "metadata": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "meta.metadata",
-      "required": true
     }
   }
 }
