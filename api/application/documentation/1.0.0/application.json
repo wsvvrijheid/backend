@@ -503,7 +503,7 @@
   "components": {
     "schemas": {
       "Application": {
-        "required": ["id", "title", "slug", "content", "image", "metadata"],
+        "required": ["id", "title", "slug", "content", "image"],
         "properties": {
           "id": {
             "type": "string"
@@ -639,15 +639,7 @@
             }
           },
           "competition": {
-            "required": [
-              "id",
-              "title",
-              "slug",
-              "content",
-              "image",
-              "start",
-              "metadata"
-            ],
+            "required": ["id", "title", "slug", "content", "image", "start"],
             "properties": {
               "id": {
                 "type": "string"
@@ -678,9 +670,6 @@
               },
               "page": {
                 "type": "string"
-              },
-              "metadata": {
-                "type": "component"
               },
               "localizations": {
                 "type": "array",
@@ -731,32 +720,10 @@
               }
             }
           },
-          "metadata": {
-            "type": "object",
-            "required": ["id", "metaTitle", "metaDescription"],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "metaTitle": {
-                "type": "string"
-              },
-              "metaDescription": {
-                "type": "string"
-              }
-            }
-          },
           "localizations": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "title",
-                "slug",
-                "content",
-                "image",
-                "metadata"
-              ],
+              "required": ["id", "title", "slug", "content", "image"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -784,9 +751,6 @@
                   "items": {
                     "type": "string"
                   }
-                },
-                "metadata": {
-                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -819,7 +783,7 @@
         }
       },
       "NewApplication": {
-        "required": ["title", "slug", "content", "metadata"],
+        "required": ["title", "slug", "content"],
         "properties": {
           "title": {
             "type": "string"
@@ -841,21 +805,6 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
-          },
-          "metadata": {
-            "type": "object",
-            "required": ["id", "metaTitle", "metaDescription"],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "metaTitle": {
-                "type": "string"
-              },
-              "metaDescription": {
-                "type": "string"
-              }
             }
           },
           "localizations": {
