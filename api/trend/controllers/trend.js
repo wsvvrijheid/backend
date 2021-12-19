@@ -5,12 +5,4 @@
  * to customize this controller
  */
 
-module.exports = {
-  async search(ctx) {
-    try {
-      return await strapi.hook.twitter.searchUser(ctx.query.username)
-    } catch (error) {
-      return error
-    }
-  },
-}
+module.exports = {}

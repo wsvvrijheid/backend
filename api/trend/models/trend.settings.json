@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "trends",
+  "info": {
+    "name": "Trend",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "en": {
+      "type": "json"
+    },
+    "nl": {
+      "type": "json"
+    },
+    "tr": {
+      "type": "json"
+    }
+  }
+}

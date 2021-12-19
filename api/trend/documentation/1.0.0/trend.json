@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/terms": {
+    "/trend": {
       "get": {
         "deprecated": false,
-        "description": "Find all the terms's records",
+        "description": "Find all the trend's records",
         "responses": {
           "200": {
-            "description": "Retrieve terms document(s)",
+            "description": "Retrieve trend document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Terms"
+                    "$ref": "#/components/schemas/Trend"
                   }
                 }
               }
@@ -50,7 +50,7 @@
           }
         },
         "summary": "",
-        "tags": ["Terms"],
+        "tags": ["Trend"],
         "parameters": [
           {
             "name": "_limit",
@@ -192,14 +192,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single terms record",
+        "description": "Update a single trend record",
         "responses": {
           "200": {
-            "description": "Retrieve terms document(s)",
+            "description": "Retrieve trend document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Terms"
+                  "$ref": "#/components/schemas/Trend"
                 }
               }
             }
@@ -236,14 +236,14 @@
           }
         },
         "summary": "",
-        "tags": ["Terms"],
+        "tags": ["Trend"],
         "requestBody": {
           "description": "",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewTerms"
+                "$ref": "#/components/schemas/NewTrend"
               }
             }
           }
@@ -252,10 +252,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single terms record",
+        "description": "Delete a single trend record",
         "responses": {
           "200": {
-            "description": "deletes a single terms based on the ID supplied",
+            "description": "deletes a single trend based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -297,138 +297,27 @@
           }
         },
         "summary": "",
-        "tags": ["Terms"],
+        "tags": ["Trend"],
         "parameters": []
       }
     }
   },
   "components": {
     "schemas": {
-      "Terms": {
+      "Trend": {
         "required": ["id"],
         "properties": {
           "id": {
             "type": "string"
           },
-          "title": {
-            "type": "string"
+          "en": {
+            "type": "object"
           },
-          "slug": {
-            "type": "uid"
+          "nl": {
+            "type": "object"
           },
-          "content": {
-            "type": "string"
-          },
-          "image": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "localizations": {
-            "type": "array",
-            "items": {
-              "required": ["id"],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "content": {
-                  "type": "string"
-                },
-                "image": {
-                  "type": "string"
-                },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "locale": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "locale": {
-            "type": "string"
+          "tr": {
+            "type": "object"
           },
           "published_at": {
             "type": "string",
@@ -436,25 +325,16 @@
           }
         }
       },
-      "NewTerms": {
+      "NewTrend": {
         "properties": {
-          "title": {
-            "type": "string"
+          "en": {
+            "type": "object"
           },
-          "slug": {
-            "type": "uid"
+          "nl": {
+            "type": "object"
           },
-          "content": {
-            "type": "string"
-          },
-          "localizations": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "locale": {
-            "type": "string"
+          "tr": {
+            "type": "object"
           },
           "published_at": {
             "type": "string",
@@ -472,7 +352,7 @@
   },
   "tags": [
     {
-      "name": "Terms"
+      "name": "Trend"
     }
   ]
 }
