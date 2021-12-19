@@ -1,21 +1,34 @@
-'use strict'
-
-/**
- * Cron config that gives you an opportunity
- * to run scheduled jobs.
- *
- * The cron format consists of:
- * [SECOND (optional)] [MINUTE] [HOUR] [DAY OF MONTH] [MONTH OF YEAR] [DAY OF WEEK]
- *
- * See more details here: https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#cron-tasks
- */
+const { sanitizeEntity } = require('strapi-utils')
 
 module.exports = {
   /**
-   * Simple example.
-   * Every monday at 1am.
+   * Cron job with timezone example.
+   * Every Monday at 1am for Asia/Dhaka timezone.
+   * List of valid timezones: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
    */
-  // '0 1 * * 1': () => {
-  //
-  // }
+
+  '*/15 * * * *': {
+    task: async () => {
+      const woeids = {
+        en: 1,
+        tr: 23424969,
+        nl: 23424909,
+      }
+
+      Object.entries(woeids).map(async ([locale, id]) => {
+        const result = await strapi.hook.twitter.getTrends(id)
+
+        if (!Array.isArray(result)) return
+
+        if (!result[0]) return
+
+        const data = result[0].trends
+
+        const entity = await strapi.services.trend.createOrUpdate({
+          [locale]: data,
+        })
+        return sanitizeEntity(entity, { model: strapi.models.trend })
+      })
+    },
+  },
 }

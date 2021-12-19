@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/trend",
+      "handler": "trend.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/trend",
+      "handler": "trend.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/trend",
+      "handler": "trend.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

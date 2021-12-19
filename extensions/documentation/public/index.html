@@ -62,7 +62,7 @@
                 name: 'Apache 2.0',
                 url: 'https://www.apache.org/licenses/LICENSE-2.0.html',
               },
-              'x-generation-date': '11/07/2021 9:34:52 AM',
+              'x-generation-date': '12/19/2021 5:46:51 PM',
             },
             'x-strapi-config': {
               path: '/documentation',
@@ -86,6 +86,257 @@
             },
             security: [{ bearerAuth: [] }],
             paths: {
+              '/about': {
+                get: {
+                  deprecated: false,
+                  description: "Find all the about's records",
+                  responses: {
+                    200: {
+                      description: 'Retrieve about document(s)',
+                      content: {
+                        'application/json': {
+                          schema: {
+                            type: 'array',
+                            items: { $ref: '#/components/schemas/About' },
+                          },
+                        },
+                      },
+                    },
+                    403: {
+                      description: 'Forbidden',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    404: {
+                      description: 'Not found',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    default: {
+                      description: 'unexpected error',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                  },
+                  summary: '',
+                  tags: ['About'],
+                  parameters: [
+                    {
+                      name: '_limit',
+                      in: 'query',
+                      required: false,
+                      description: 'Maximum number of results possible',
+                      schema: { type: 'integer' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_sort',
+                      in: 'query',
+                      required: false,
+                      description: 'Sort according to a specific field.',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_start',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Skip a specific number of entries (especially useful for pagination)',
+                      schema: { type: 'integer' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '=',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get entries that matches exactly your input',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_ne',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that are not equals to something',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_lt',
+                      in: 'query',
+                      required: false,
+                      description: 'Get record that are lower than a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_lte',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that are lower than or equal to a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_gt',
+                      in: 'query',
+                      required: false,
+                      description: 'Get records that are greater than a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_gte',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that are greater than  or equal a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_contains',
+                      in: 'query',
+                      required: false,
+                      description: 'Get records that contains a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_containss',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that contains (case sensitive) a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_in',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that matches any value in the array of values',
+                      schema: { type: 'array', items: { type: 'string' } },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_nin',
+                      in: 'query',
+                      required: false,
+                      description:
+                        "Get records that doesn't match any value in the array of values",
+                      schema: { type: 'array', items: { type: 'string' } },
+                      deprecated: false,
+                    },
+                  ],
+                },
+                put: {
+                  deprecated: false,
+                  description: 'Update a single about record',
+                  responses: {
+                    200: {
+                      description: 'Retrieve about document(s)',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/About' },
+                        },
+                      },
+                    },
+                    403: {
+                      description: 'Forbidden',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    404: {
+                      description: 'Not found',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    default: {
+                      description: 'unexpected error',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                  },
+                  summary: '',
+                  tags: ['About'],
+                  requestBody: {
+                    description: '',
+                    required: true,
+                    content: {
+                      'application/json': {
+                        schema: { $ref: '#/components/schemas/NewAbout' },
+                      },
+                    },
+                  },
+                  parameters: [],
+                },
+                delete: {
+                  deprecated: false,
+                  description: 'Delete a single about record',
+                  responses: {
+                    200: {
+                      description:
+                        'deletes a single about based on the ID supplied',
+                      content: {
+                        'application/json': {
+                          schema: { type: 'integer', format: 'int64' },
+                        },
+                      },
+                    },
+                    403: {
+                      description: 'Forbidden',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    404: {
+                      description: 'Not found',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    default: {
+                      description: 'unexpected error',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                  },
+                  summary: '',
+                  tags: ['About'],
+                  parameters: [],
+                },
+              },
               '/applications': {
                 get: {
                   deprecated: false,
@@ -2618,6 +2869,257 @@
                   ],
                 },
               },
+              '/privacy': {
+                get: {
+                  deprecated: false,
+                  description: "Find all the privacy's records",
+                  responses: {
+                    200: {
+                      description: 'Retrieve privacy document(s)',
+                      content: {
+                        'application/json': {
+                          schema: {
+                            type: 'array',
+                            items: { $ref: '#/components/schemas/Privacy' },
+                          },
+                        },
+                      },
+                    },
+                    403: {
+                      description: 'Forbidden',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    404: {
+                      description: 'Not found',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    default: {
+                      description: 'unexpected error',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                  },
+                  summary: '',
+                  tags: ['Privacy'],
+                  parameters: [
+                    {
+                      name: '_limit',
+                      in: 'query',
+                      required: false,
+                      description: 'Maximum number of results possible',
+                      schema: { type: 'integer' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_sort',
+                      in: 'query',
+                      required: false,
+                      description: 'Sort according to a specific field.',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_start',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Skip a specific number of entries (especially useful for pagination)',
+                      schema: { type: 'integer' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '=',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get entries that matches exactly your input',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_ne',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that are not equals to something',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_lt',
+                      in: 'query',
+                      required: false,
+                      description: 'Get record that are lower than a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_lte',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that are lower than or equal to a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_gt',
+                      in: 'query',
+                      required: false,
+                      description: 'Get records that are greater than a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_gte',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that are greater than  or equal a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_contains',
+                      in: 'query',
+                      required: false,
+                      description: 'Get records that contains a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_containss',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that contains (case sensitive) a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_in',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that matches any value in the array of values',
+                      schema: { type: 'array', items: { type: 'string' } },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_nin',
+                      in: 'query',
+                      required: false,
+                      description:
+                        "Get records that doesn't match any value in the array of values",
+                      schema: { type: 'array', items: { type: 'string' } },
+                      deprecated: false,
+                    },
+                  ],
+                },
+                put: {
+                  deprecated: false,
+                  description: 'Update a single privacy record',
+                  responses: {
+                    200: {
+                      description: 'Retrieve privacy document(s)',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Privacy' },
+                        },
+                      },
+                    },
+                    403: {
+                      description: 'Forbidden',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    404: {
+                      description: 'Not found',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    default: {
+                      description: 'unexpected error',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                  },
+                  summary: '',
+                  tags: ['Privacy'],
+                  requestBody: {
+                    description: '',
+                    required: true,
+                    content: {
+                      'application/json': {
+                        schema: { $ref: '#/components/schemas/NewPrivacy' },
+                      },
+                    },
+                  },
+                  parameters: [],
+                },
+                delete: {
+                  deprecated: false,
+                  description: 'Delete a single privacy record',
+                  responses: {
+                    200: {
+                      description:
+                        'deletes a single privacy based on the ID supplied',
+                      content: {
+                        'application/json': {
+                          schema: { type: 'integer', format: 'int64' },
+                        },
+                      },
+                    },
+                    403: {
+                      description: 'Forbidden',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    404: {
+                      description: 'Not found',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    default: {
+                      description: 'unexpected error',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                  },
+                  summary: '',
+                  tags: ['Privacy'],
+                  parameters: [],
+                },
+              },
               '/subpages': {
                 get: {
                   deprecated: false,
@@ -3031,6 +3533,508 @@
                       schema: { type: 'string' },
                     },
                   ],
+                },
+              },
+              '/terms': {
+                get: {
+                  deprecated: false,
+                  description: "Find all the terms's records",
+                  responses: {
+                    200: {
+                      description: 'Retrieve terms document(s)',
+                      content: {
+                        'application/json': {
+                          schema: {
+                            type: 'array',
+                            items: { $ref: '#/components/schemas/Terms' },
+                          },
+                        },
+                      },
+                    },
+                    403: {
+                      description: 'Forbidden',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    404: {
+                      description: 'Not found',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    default: {
+                      description: 'unexpected error',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                  },
+                  summary: '',
+                  tags: ['Terms'],
+                  parameters: [
+                    {
+                      name: '_limit',
+                      in: 'query',
+                      required: false,
+                      description: 'Maximum number of results possible',
+                      schema: { type: 'integer' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_sort',
+                      in: 'query',
+                      required: false,
+                      description: 'Sort according to a specific field.',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_start',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Skip a specific number of entries (especially useful for pagination)',
+                      schema: { type: 'integer' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '=',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get entries that matches exactly your input',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_ne',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that are not equals to something',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_lt',
+                      in: 'query',
+                      required: false,
+                      description: 'Get record that are lower than a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_lte',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that are lower than or equal to a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_gt',
+                      in: 'query',
+                      required: false,
+                      description: 'Get records that are greater than a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_gte',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that are greater than  or equal a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_contains',
+                      in: 'query',
+                      required: false,
+                      description: 'Get records that contains a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_containss',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that contains (case sensitive) a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_in',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that matches any value in the array of values',
+                      schema: { type: 'array', items: { type: 'string' } },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_nin',
+                      in: 'query',
+                      required: false,
+                      description:
+                        "Get records that doesn't match any value in the array of values",
+                      schema: { type: 'array', items: { type: 'string' } },
+                      deprecated: false,
+                    },
+                  ],
+                },
+                put: {
+                  deprecated: false,
+                  description: 'Update a single terms record',
+                  responses: {
+                    200: {
+                      description: 'Retrieve terms document(s)',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Terms' },
+                        },
+                      },
+                    },
+                    403: {
+                      description: 'Forbidden',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    404: {
+                      description: 'Not found',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    default: {
+                      description: 'unexpected error',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                  },
+                  summary: '',
+                  tags: ['Terms'],
+                  requestBody: {
+                    description: '',
+                    required: true,
+                    content: {
+                      'application/json': {
+                        schema: { $ref: '#/components/schemas/NewTerms' },
+                      },
+                    },
+                  },
+                  parameters: [],
+                },
+                delete: {
+                  deprecated: false,
+                  description: 'Delete a single terms record',
+                  responses: {
+                    200: {
+                      description:
+                        'deletes a single terms based on the ID supplied',
+                      content: {
+                        'application/json': {
+                          schema: { type: 'integer', format: 'int64' },
+                        },
+                      },
+                    },
+                    403: {
+                      description: 'Forbidden',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    404: {
+                      description: 'Not found',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    default: {
+                      description: 'unexpected error',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                  },
+                  summary: '',
+                  tags: ['Terms'],
+                  parameters: [],
+                },
+              },
+              '/trend': {
+                get: {
+                  deprecated: false,
+                  description: "Find all the trend's records",
+                  responses: {
+                    200: {
+                      description: 'Retrieve trend document(s)',
+                      content: {
+                        'application/json': {
+                          schema: {
+                            type: 'array',
+                            items: { $ref: '#/components/schemas/Trend' },
+                          },
+                        },
+                      },
+                    },
+                    403: {
+                      description: 'Forbidden',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    404: {
+                      description: 'Not found',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    default: {
+                      description: 'unexpected error',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                  },
+                  summary: '',
+                  tags: ['Trend'],
+                  parameters: [
+                    {
+                      name: '_limit',
+                      in: 'query',
+                      required: false,
+                      description: 'Maximum number of results possible',
+                      schema: { type: 'integer' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_sort',
+                      in: 'query',
+                      required: false,
+                      description: 'Sort according to a specific field.',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_start',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Skip a specific number of entries (especially useful for pagination)',
+                      schema: { type: 'integer' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '=',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get entries that matches exactly your input',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_ne',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that are not equals to something',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_lt',
+                      in: 'query',
+                      required: false,
+                      description: 'Get record that are lower than a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_lte',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that are lower than or equal to a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_gt',
+                      in: 'query',
+                      required: false,
+                      description: 'Get records that are greater than a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_gte',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that are greater than  or equal a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_contains',
+                      in: 'query',
+                      required: false,
+                      description: 'Get records that contains a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_containss',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that contains (case sensitive) a value',
+                      schema: { type: 'string' },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_in',
+                      in: 'query',
+                      required: false,
+                      description:
+                        'Get records that matches any value in the array of values',
+                      schema: { type: 'array', items: { type: 'string' } },
+                      deprecated: false,
+                    },
+                    {
+                      name: '_nin',
+                      in: 'query',
+                      required: false,
+                      description:
+                        "Get records that doesn't match any value in the array of values",
+                      schema: { type: 'array', items: { type: 'string' } },
+                      deprecated: false,
+                    },
+                  ],
+                },
+                put: {
+                  deprecated: false,
+                  description: 'Update a single trend record',
+                  responses: {
+                    200: {
+                      description: 'Retrieve trend document(s)',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Trend' },
+                        },
+                      },
+                    },
+                    403: {
+                      description: 'Forbidden',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    404: {
+                      description: 'Not found',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    default: {
+                      description: 'unexpected error',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                  },
+                  summary: '',
+                  tags: ['Trend'],
+                  requestBody: {
+                    description: '',
+                    required: true,
+                    content: {
+                      'application/json': {
+                        schema: { $ref: '#/components/schemas/NewTrend' },
+                      },
+                    },
+                  },
+                  parameters: [],
+                },
+                delete: {
+                  deprecated: false,
+                  description: 'Delete a single trend record',
+                  responses: {
+                    200: {
+                      description:
+                        'deletes a single trend based on the ID supplied',
+                      content: {
+                        'application/json': {
+                          schema: { type: 'integer', format: 'int64' },
+                        },
+                      },
+                    },
+                    403: {
+                      description: 'Forbidden',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    404: {
+                      description: 'Not found',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                    default: {
+                      description: 'unexpected error',
+                      content: {
+                        'application/json': {
+                          schema: { $ref: '#/components/schemas/Error' },
+                        },
+                      },
+                    },
+                  },
+                  summary: '',
+                  tags: ['Trend'],
+                  parameters: [],
                 },
               },
               '/votes': {
@@ -5211,15 +6215,135 @@
             },
             components: {
               schemas: {
+                About: {
+                  required: ['id'],
+                  properties: {
+                    id: { type: 'string' },
+                    title: { type: 'string' },
+                    slug: { type: 'uid' },
+                    item: {
+                      type: 'array',
+                      items: {
+                        type: 'object',
+                        required: ['id'],
+                        properties: {
+                          id: { type: 'string' },
+                          Title: { type: 'string' },
+                          image: {
+                            required: [
+                              'id',
+                              'name',
+                              'hash',
+                              'mime',
+                              'size',
+                              'url',
+                              'provider',
+                            ],
+                            properties: {
+                              id: { type: 'string' },
+                              name: { type: 'string' },
+                              alternativeText: { type: 'string' },
+                              caption: { type: 'string' },
+                              width: { type: 'integer' },
+                              height: { type: 'integer' },
+                              formats: { type: 'object' },
+                              hash: { type: 'string' },
+                              ext: { type: 'string' },
+                              mime: { type: 'string' },
+                              size: { type: 'number' },
+                              url: { type: 'string' },
+                              previewUrl: { type: 'string' },
+                              provider: { type: 'string' },
+                              provider_metadata: { type: 'object' },
+                              related: { type: 'string' },
+                              created_by: { type: 'string' },
+                              updated_by: { type: 'string' },
+                            },
+                          },
+                          content: { type: 'string' },
+                        },
+                      },
+                    },
+                    localizations: {
+                      type: 'array',
+                      items: {
+                        required: ['id'],
+                        properties: {
+                          id: { type: 'string' },
+                          title: { type: 'string' },
+                          slug: { type: 'uid' },
+                          item: { type: 'component' },
+                          localizations: {
+                            type: 'array',
+                            items: { type: 'string' },
+                          },
+                          locale: { type: 'string' },
+                          published_at: { type: 'string' },
+                          created_by: { type: 'string' },
+                          updated_by: { type: 'string' },
+                        },
+                      },
+                    },
+                    locale: { type: 'string' },
+                    published_at: { type: 'string', format: 'date-time' },
+                  },
+                },
+                NewAbout: {
+                  properties: {
+                    title: { type: 'string' },
+                    slug: { type: 'uid' },
+                    item: {
+                      type: 'array',
+                      items: {
+                        type: 'object',
+                        required: ['id'],
+                        properties: {
+                          id: { type: 'string' },
+                          Title: { type: 'string' },
+                          image: {
+                            required: [
+                              'id',
+                              'name',
+                              'hash',
+                              'mime',
+                              'size',
+                              'url',
+                              'provider',
+                            ],
+                            properties: {
+                              id: { type: 'string' },
+                              name: { type: 'string' },
+                              alternativeText: { type: 'string' },
+                              caption: { type: 'string' },
+                              width: { type: 'integer' },
+                              height: { type: 'integer' },
+                              formats: { type: 'object' },
+                              hash: { type: 'string' },
+                              ext: { type: 'string' },
+                              mime: { type: 'string' },
+                              size: { type: 'number' },
+                              url: { type: 'string' },
+                              previewUrl: { type: 'string' },
+                              provider: { type: 'string' },
+                              provider_metadata: { type: 'object' },
+                              related: { type: 'string' },
+                              created_by: { type: 'string' },
+                              updated_by: { type: 'string' },
+                            },
+                          },
+                          content: { type: 'string' },
+                        },
+                      },
+                    },
+                    localizations: { type: 'array', items: { type: 'string' } },
+                    locale: { type: 'string' },
+                    published_at: { type: 'string', format: 'date-time' },
+                    created_by: { type: 'string' },
+                    updated_by: { type: 'string' },
+                  },
+                },
                 Application: {
-                  required: [
-                    'id',
-                    'title',
-                    'slug',
-                    'content',
-                    'image',
-                    'metadata',
-                  ],
+                  required: ['id', 'title', 'slug', 'content', 'image'],
                   properties: {
                     id: { type: 'string' },
                     title: { type: 'string' },
@@ -5286,7 +6410,6 @@
                         'content',
                         'image',
                         'start',
-                        'metadata',
                       ],
                       properties: {
                         id: { type: 'string' },
@@ -5301,7 +6424,6 @@
                           items: { type: 'string' },
                         },
                         page: { type: 'string' },
-                        metadata: { type: 'component' },
                         localizations: {
                           type: 'array',
                           items: { type: 'string' },
@@ -5327,26 +6449,10 @@
                         },
                       },
                     },
-                    metadata: {
-                      type: 'object',
-                      required: ['id', 'metaTitle', 'metaDescription'],
-                      properties: {
-                        id: { type: 'string' },
-                        metaTitle: { type: 'string' },
-                        metaDescription: { type: 'string' },
-                      },
-                    },
                     localizations: {
                       type: 'array',
                       items: {
-                        required: [
-                          'id',
-                          'title',
-                          'slug',
-                          'content',
-                          'image',
-                          'metadata',
-                        ],
+                        required: ['id', 'title', 'slug', 'content', 'image'],
                         properties: {
                           id: { type: 'string' },
                           title: { type: 'string' },
@@ -5356,7 +6462,6 @@
                           user: { type: 'string' },
                           competition: { type: 'string' },
                           votes: { type: 'array', items: { type: 'string' } },
-                          metadata: { type: 'component' },
                           localizations: {
                             type: 'array',
                             items: { type: 'string' },
@@ -5373,7 +6478,7 @@
                   },
                 },
                 NewApplication: {
-                  required: ['title', 'slug', 'content', 'metadata'],
+                  required: ['title', 'slug', 'content'],
                   properties: {
                     title: { type: 'string' },
                     slug: { type: 'uid', maxLength: 30 },
@@ -5381,15 +6486,6 @@
                     user: { type: 'string' },
                     competition: { type: 'string' },
                     votes: { type: 'array', items: { type: 'string' } },
-                    metadata: {
-                      type: 'object',
-                      required: ['id', 'metaTitle', 'metaDescription'],
-                      properties: {
-                        id: { type: 'string' },
-                        metaTitle: { type: 'string' },
-                        metaDescription: { type: 'string' },
-                      },
-                    },
                     localizations: { type: 'array', items: { type: 'string' } },
                     locale: { type: 'string' },
                     published_at: { type: 'string', format: 'date-time' },
@@ -5405,7 +6501,6 @@
                     'content',
                     'image',
                     'start',
-                    'metadata',
                   ],
                   properties: {
                     id: { type: 'string' },
@@ -5448,14 +6543,7 @@
                     applications: {
                       type: 'array',
                       items: {
-                        required: [
-                          'id',
-                          'title',
-                          'slug',
-                          'content',
-                          'image',
-                          'metadata',
-                        ],
+                        required: ['id', 'title', 'slug', 'content', 'image'],
                         properties: {
                           id: { type: 'string' },
                           title: { type: 'string' },
@@ -5465,7 +6553,6 @@
                           user: { type: 'string' },
                           competition: { type: 'string' },
                           votes: { type: 'array', items: { type: 'string' } },
-                          metadata: { type: 'component' },
                           localizations: {
                             type: 'array',
                             items: { type: 'string' },
@@ -5485,7 +6572,6 @@
                         'content',
                         'image',
                         'type',
-                        'metadata',
                       ],
                       properties: {
                         id: { type: 'string' },
@@ -5509,7 +6595,6 @@
                           items: { type: 'string' },
                         },
                         hashtags: { type: 'array', items: { type: 'string' } },
-                        metadata: { type: 'component' },
                         localizations: {
                           type: 'array',
                           items: { type: 'string' },
@@ -5518,15 +6603,6 @@
                         published_at: { type: 'string' },
                         created_by: { type: 'string' },
                         updated_by: { type: 'string' },
-                      },
-                    },
-                    metadata: {
-                      type: 'object',
-                      required: ['id', 'metaTitle', 'metaDescription'],
-                      properties: {
-                        id: { type: 'string' },
-                        metaTitle: { type: 'string' },
-                        metaDescription: { type: 'string' },
                       },
                     },
                     localizations: {
@@ -5539,7 +6615,6 @@
                           'content',
                           'image',
                           'start',
-                          'metadata',
                         ],
                         properties: {
                           id: { type: 'string' },
@@ -5554,7 +6629,6 @@
                             items: { type: 'string' },
                           },
                           page: { type: 'string' },
-                          metadata: { type: 'component' },
                           localizations: {
                             type: 'array',
                             items: { type: 'string' },
@@ -5571,7 +6645,7 @@
                   },
                 },
                 NewCompetition: {
-                  required: ['title', 'slug', 'content', 'start', 'metadata'],
+                  required: ['title', 'slug', 'content', 'start'],
                   properties: {
                     title: { type: 'string' },
                     slug: { type: 'uid', maxLength: 30 },
@@ -5580,15 +6654,6 @@
                     end: { type: 'string', format: 'date-time' },
                     applications: { type: 'array', items: { type: 'string' } },
                     page: { type: 'string' },
-                    metadata: {
-                      type: 'object',
-                      required: ['id', 'metaTitle', 'metaDescription'],
-                      properties: {
-                        id: { type: 'string' },
-                        metaTitle: { type: 'string' },
-                        metaDescription: { type: 'string' },
-                      },
-                    },
                     localizations: { type: 'array', items: { type: 'string' } },
                     locale: { type: 'string' },
                     published_at: { type: 'string', format: 'date-time' },
@@ -5642,7 +6707,6 @@
                         'image',
                         'date',
                         'hashtag',
-                        'metadata',
                       ],
                       properties: {
                         id: { type: 'string' },
@@ -5654,7 +6718,6 @@
                         hashtag: { type: 'string' },
                         page: { type: 'string' },
                         posts: { type: 'array', items: { type: 'string' } },
-                        metadata: { type: 'component' },
                         localizations: {
                           type: 'array',
                           items: { type: 'string' },
@@ -5712,7 +6775,6 @@
                     'image',
                     'date',
                     'hashtag',
-                    'metadata',
                   ],
                   properties: {
                     id: { type: 'string' },
@@ -5760,7 +6822,6 @@
                         'content',
                         'image',
                         'type',
-                        'metadata',
                       ],
                       properties: {
                         id: { type: 'string' },
@@ -5784,7 +6845,6 @@
                           items: { type: 'string' },
                         },
                         hashtags: { type: 'array', items: { type: 'string' } },
-                        metadata: { type: 'component' },
                         localizations: {
                           type: 'array',
                           items: { type: 'string' },
@@ -5816,15 +6876,6 @@
                         },
                       },
                     },
-                    metadata: {
-                      type: 'object',
-                      required: ['id', 'metaTitle', 'metaDescription'],
-                      properties: {
-                        id: { type: 'string' },
-                        metaTitle: { type: 'string' },
-                        metaDescription: { type: 'string' },
-                      },
-                    },
                     localizations: {
                       type: 'array',
                       items: {
@@ -5836,7 +6887,6 @@
                           'image',
                           'date',
                           'hashtag',
-                          'metadata',
                         ],
                         properties: {
                           id: { type: 'string' },
@@ -5848,7 +6898,6 @@
                           hashtag: { type: 'string' },
                           page: { type: 'string' },
                           posts: { type: 'array', items: { type: 'string' } },
-                          metadata: { type: 'component' },
                           localizations: {
                             type: 'array',
                             items: { type: 'string' },
@@ -5865,14 +6914,7 @@
                   },
                 },
                 NewHashtag: {
-                  required: [
-                    'title',
-                    'slug',
-                    'content',
-                    'date',
-                    'hashtag',
-                    'metadata',
-                  ],
+                  required: ['title', 'slug', 'content', 'date', 'hashtag'],
                   properties: {
                     title: { type: 'string' },
                     slug: { type: 'uid', maxLength: 30 },
@@ -5881,15 +6923,6 @@
                     hashtag: { type: 'string' },
                     page: { type: 'string' },
                     posts: { type: 'array', items: { type: 'string' } },
-                    metadata: {
-                      type: 'object',
-                      required: ['id', 'metaTitle', 'metaDescription'],
-                      properties: {
-                        id: { type: 'string' },
-                        metaTitle: { type: 'string' },
-                        metaDescription: { type: 'string' },
-                      },
-                    },
                     localizations: { type: 'array', items: { type: 'string' } },
                     locale: { type: 'string' },
                     published_at: { type: 'string', format: 'date-time' },
@@ -5927,15 +6960,7 @@
                   },
                 },
                 Page: {
-                  required: [
-                    'id',
-                    'title',
-                    'slug',
-                    'content',
-                    'image',
-                    'type',
-                    'metadata',
-                  ],
+                  required: ['id', 'title', 'slug', 'content', 'image', 'type'],
                   properties: {
                     id: { type: 'string' },
                     title: { type: 'string' },
@@ -5993,7 +7018,6 @@
                           'type',
                           'start',
                           'image',
-                          'metadata',
                         ],
                         properties: {
                           id: { type: 'string' },
@@ -6014,7 +7038,6 @@
                           end: { type: 'string' },
                           image: { type: 'string' },
                           page: { type: 'string' },
-                          metadata: { type: 'component' },
                           localizations: {
                             type: 'array',
                             items: { type: 'string' },
@@ -6036,7 +7059,6 @@
                           'content',
                           'image',
                           'start',
-                          'metadata',
                         ],
                         properties: {
                           id: { type: 'string' },
@@ -6051,7 +7073,6 @@
                             items: { type: 'string' },
                           },
                           page: { type: 'string' },
-                          metadata: { type: 'component' },
                           localizations: {
                             type: 'array',
                             items: { type: 'string' },
@@ -6074,7 +7095,6 @@
                           'image',
                           'date',
                           'hashtag',
-                          'metadata',
                         ],
                         properties: {
                           id: { type: 'string' },
@@ -6086,7 +7106,6 @@
                           hashtag: { type: 'string' },
                           page: { type: 'string' },
                           posts: { type: 'array', items: { type: 'string' } },
-                          metadata: { type: 'component' },
                           localizations: {
                             type: 'array',
                             items: { type: 'string' },
@@ -6096,15 +7115,6 @@
                           created_by: { type: 'string' },
                           updated_by: { type: 'string' },
                         },
-                      },
-                    },
-                    metadata: {
-                      type: 'object',
-                      required: ['id', 'metaTitle', 'metaDescription'],
-                      properties: {
-                        id: { type: 'string' },
-                        metaTitle: { type: 'string' },
-                        metaDescription: { type: 'string' },
                       },
                     },
                     localizations: {
@@ -6117,7 +7127,6 @@
                           'content',
                           'image',
                           'type',
-                          'metadata',
                         ],
                         properties: {
                           id: { type: 'string' },
@@ -6147,7 +7156,6 @@
                             type: 'array',
                             items: { type: 'string' },
                           },
-                          metadata: { type: 'component' },
                           localizations: {
                             type: 'array',
                             items: { type: 'string' },
@@ -6164,7 +7172,7 @@
                   },
                 },
                 NewPage: {
-                  required: ['title', 'slug', 'content', 'type', 'metadata'],
+                  required: ['title', 'slug', 'content', 'type'],
                   properties: {
                     title: { type: 'string' },
                     slug: { type: 'uid' },
@@ -6182,15 +7190,49 @@
                     subpages: { type: 'array', items: { type: 'string' } },
                     competitions: { type: 'array', items: { type: 'string' } },
                     hashtags: { type: 'array', items: { type: 'string' } },
-                    metadata: {
-                      type: 'object',
-                      required: ['id', 'metaTitle', 'metaDescription'],
-                      properties: {
-                        id: { type: 'string' },
-                        metaTitle: { type: 'string' },
-                        metaDescription: { type: 'string' },
+                    localizations: { type: 'array', items: { type: 'string' } },
+                    locale: { type: 'string' },
+                    published_at: { type: 'string', format: 'date-time' },
+                    created_by: { type: 'string' },
+                    updated_by: { type: 'string' },
+                  },
+                },
+                Privacy: {
+                  required: ['id'],
+                  properties: {
+                    id: { type: 'string' },
+                    title: { type: 'string' },
+                    slug: { type: 'uid' },
+                    content: { type: 'string' },
+                    localizations: {
+                      type: 'array',
+                      items: {
+                        required: ['id'],
+                        properties: {
+                          id: { type: 'string' },
+                          title: { type: 'string' },
+                          slug: { type: 'uid' },
+                          content: { type: 'string' },
+                          localizations: {
+                            type: 'array',
+                            items: { type: 'string' },
+                          },
+                          locale: { type: 'string' },
+                          published_at: { type: 'string' },
+                          created_by: { type: 'string' },
+                          updated_by: { type: 'string' },
+                        },
                       },
                     },
+                    locale: { type: 'string' },
+                    published_at: { type: 'string', format: 'date-time' },
+                  },
+                },
+                NewPrivacy: {
+                  properties: {
+                    title: { type: 'string' },
+                    slug: { type: 'uid' },
+                    content: { type: 'string' },
                     localizations: { type: 'array', items: { type: 'string' } },
                     locale: { type: 'string' },
                     published_at: { type: 'string', format: 'date-time' },
@@ -6207,7 +7249,6 @@
                     'type',
                     'start',
                     'image',
-                    'metadata',
                   ],
                   properties: {
                     id: { type: 'string' },
@@ -6265,7 +7306,6 @@
                         'content',
                         'image',
                         'type',
-                        'metadata',
                       ],
                       properties: {
                         id: { type: 'string' },
@@ -6289,7 +7329,6 @@
                           items: { type: 'string' },
                         },
                         hashtags: { type: 'array', items: { type: 'string' } },
-                        metadata: { type: 'component' },
                         localizations: {
                           type: 'array',
                           items: { type: 'string' },
@@ -6298,15 +7337,6 @@
                         published_at: { type: 'string' },
                         created_by: { type: 'string' },
                         updated_by: { type: 'string' },
-                      },
-                    },
-                    metadata: {
-                      type: 'object',
-                      required: ['id', 'metaTitle', 'metaDescription'],
-                      properties: {
-                        id: { type: 'string' },
-                        metaTitle: { type: 'string' },
-                        metaDescription: { type: 'string' },
                       },
                     },
                     localizations: {
@@ -6320,7 +7350,6 @@
                           'type',
                           'start',
                           'image',
-                          'metadata',
                         ],
                         properties: {
                           id: { type: 'string' },
@@ -6341,7 +7370,6 @@
                           end: { type: 'string' },
                           image: { type: 'string' },
                           page: { type: 'string' },
-                          metadata: { type: 'component' },
                           localizations: {
                             type: 'array',
                             items: { type: 'string' },
@@ -6358,14 +7386,7 @@
                   },
                 },
                 NewSubpage: {
-                  required: [
-                    'title',
-                    'slug',
-                    'content',
-                    'type',
-                    'start',
-                    'metadata',
-                  ],
+                  required: ['title', 'slug', 'content', 'type', 'start'],
                   properties: {
                     title: { type: 'string' },
                     slug: { type: 'uid' },
@@ -6383,15 +7404,86 @@
                     start: { type: 'string', format: 'date-time' },
                     end: { type: 'string', format: 'date-time' },
                     page: { type: 'string' },
-                    metadata: {
-                      type: 'object',
-                      required: ['id', 'metaTitle', 'metaDescription'],
-                      properties: {
-                        id: { type: 'string' },
-                        metaTitle: { type: 'string' },
-                        metaDescription: { type: 'string' },
+                    localizations: { type: 'array', items: { type: 'string' } },
+                    locale: { type: 'string' },
+                    published_at: { type: 'string', format: 'date-time' },
+                    created_by: { type: 'string' },
+                    updated_by: { type: 'string' },
+                  },
+                },
+                Terms: {
+                  required: ['id'],
+                  properties: {
+                    id: { type: 'string' },
+                    title: { type: 'string' },
+                    slug: { type: 'uid' },
+                    content: { type: 'string' },
+                    localizations: {
+                      type: 'array',
+                      items: {
+                        required: ['id'],
+                        properties: {
+                          id: { type: 'string' },
+                          title: { type: 'string' },
+                          slug: { type: 'uid' },
+                          content: { type: 'string' },
+                          localizations: {
+                            type: 'array',
+                            items: { type: 'string' },
+                          },
+                          locale: { type: 'string' },
+                          published_at: { type: 'string' },
+                          created_by: { type: 'string' },
+                          updated_by: { type: 'string' },
+                        },
                       },
                     },
+                    locale: { type: 'string' },
+                    published_at: { type: 'string', format: 'date-time' },
+                  },
+                },
+                NewTerms: {
+                  properties: {
+                    title: { type: 'string' },
+                    slug: { type: 'uid' },
+                    content: { type: 'string' },
+                    localizations: { type: 'array', items: { type: 'string' } },
+                    locale: { type: 'string' },
+                    published_at: { type: 'string', format: 'date-time' },
+                    created_by: { type: 'string' },
+                    updated_by: { type: 'string' },
+                  },
+                },
+                Trend: {
+                  required: ['id'],
+                  properties: {
+                    id: { type: 'string' },
+                    data: { type: 'object' },
+                    localizations: {
+                      type: 'array',
+                      items: {
+                        required: ['id'],
+                        properties: {
+                          id: { type: 'string' },
+                          data: { type: 'object' },
+                          localizations: {
+                            type: 'array',
+                            items: { type: 'string' },
+                          },
+                          locale: { type: 'string' },
+                          published_at: { type: 'string' },
+                          created_by: { type: 'string' },
+                          updated_by: { type: 'string' },
+                        },
+                      },
+                    },
+                    locale: { type: 'string' },
+                    published_at: { type: 'string', format: 'date-time' },
+                  },
+                },
+                NewTrend: {
+                  properties: {
+                    data: { type: 'object' },
                     localizations: { type: 'array', items: { type: 'string' } },
                     locale: { type: 'string' },
                     published_at: { type: 'string', format: 'date-time' },
@@ -6427,14 +7519,7 @@
                       },
                     },
                     application: {
-                      required: [
-                        'id',
-                        'title',
-                        'slug',
-                        'content',
-                        'image',
-                        'metadata',
-                      ],
+                      required: ['id', 'title', 'slug', 'content', 'image'],
                       properties: {
                         id: { type: 'string' },
                         title: { type: 'string' },
@@ -6444,7 +7529,6 @@
                         user: { type: 'string' },
                         competition: { type: 'string' },
                         votes: { type: 'array', items: { type: 'string' } },
-                        metadata: { type: 'component' },
                         localizations: {
                           type: 'array',
                           items: { type: 'string' },
@@ -6566,14 +7650,7 @@
                     applications: {
                       type: 'array',
                       items: {
-                        required: [
-                          'id',
-                          'title',
-                          'slug',
-                          'content',
-                          'image',
-                          'metadata',
-                        ],
+                        required: ['id', 'title', 'slug', 'content', 'image'],
                         properties: {
                           id: { type: 'string' },
                           title: { type: 'string' },
@@ -6583,7 +7660,6 @@
                           user: { type: 'string' },
                           competition: { type: 'string' },
                           votes: { type: 'array', items: { type: 'string' } },
-                          metadata: { type: 'component' },
                           localizations: {
                             type: 'array',
                             items: { type: 'string' },
@@ -6651,12 +7727,16 @@
               },
             },
             tags: [
+              { name: 'About' },
               { name: 'Application' },
               { name: 'Competition' },
               { name: 'Hashtag' },
               { name: 'Mention' },
               { name: 'Page' },
+              { name: 'Privacy' },
               { name: 'Subpage' },
+              { name: 'Terms' },
+              { name: 'Trend' },
               { name: 'Vote' },
               { name: 'Email - Email' },
               { name: 'Upload - File' },
