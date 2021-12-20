@@ -10,7 +10,7 @@ module.exports = {
       }
 
       const entities = await Promise.all(
-        Object.entities(woeids).map(async ([locale, id]) => {
+        Object.entries(woeids).map(async ([locale, id]) => {
           try {
             const result = await strapi.hook.twitter.getTrends(id)
 
