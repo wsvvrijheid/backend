@@ -746,6 +746,9 @@
                 "hashtag": {
                   "type": "string"
                 },
+                "hashtag_extra": {
+                  "type": "string"
+                },
                 "page": {
                   "type": "string"
                 },

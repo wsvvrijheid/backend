@@ -636,6 +636,9 @@
                   "type": "string"
                 }
               },
+              "hashtag_extra": {
+                "type": "string"
+              },
               "localizations": {
                 "type": "array",
                 "items": {
