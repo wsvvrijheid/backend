@@ -69,11 +69,19 @@
     "hashtag": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "type": "string",
       "required": true
+    },
+    "hashtag_extra": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
     },
     "page": {
       "via": "hashtags",
