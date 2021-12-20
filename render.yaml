@@ -2,7 +2,7 @@ services:
   - type: web
     name: samen-strapi
     env: node
-    plan: standard
+    plan: Starter
     buildCommand: yarn install && yarn build
     startCommand: yarn start
     healthCheckPath: /_health
@@ -26,4 +26,4 @@ services:
 
 databases:
   - name: samen-strapi
-    plan: starter
+    plan: Starter
