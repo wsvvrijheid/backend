@@ -550,6 +550,9 @@
                     "type": "string"
                   }
                 },
+                "author": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },

@@ -600,6 +600,9 @@
           "hashtag": {
             "type": "string"
           },
+          "hashtag_extra": {
+            "type": "string"
+          },
           "page": {
             "required": ["id", "title", "slug", "content", "image", "type"],
             "properties": {
@@ -686,6 +689,9 @@
                 "hashtag": {
                   "type": "string"
                 },
+                "likes": {
+                  "type": "integer"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -706,9 +712,6 @@
                 }
               }
             }
-          },
-          "hashtag_extra": {
-            "type": "string"
           },
           "localizations": {
             "type": "array",
@@ -744,6 +747,9 @@
                 "hashtag": {
                   "type": "string"
                 },
+                "hashtag_extra": {
+                  "type": "string"
+                },
                 "page": {
                   "type": "string"
                 },
@@ -752,9 +758,6 @@
                   "items": {
                     "type": "string"
                   }
-                },
-                "hashtag_extra": {
-                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -806,6 +809,9 @@
           "hashtag": {
             "type": "string"
           },
+          "hashtag_extra": {
+            "type": "string"
+          },
           "page": {
             "type": "string"
           },
@@ -814,9 +820,6 @@
             "items": {
               "type": "string"
             }
-          },
-          "hashtag_extra": {
-            "type": "string"
           },
           "localizations": {
             "type": "array",

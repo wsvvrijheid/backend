@@ -670,6 +670,12 @@
               }
             }
           },
+          "likes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -716,6 +722,12 @@
                 },
                 "page": {
                   "type": "string"
+                },
+                "likes": {
+                  "type": "integer"
+                },
+                "views": {
+                  "type": "integer"
                 },
                 "localizations": {
                   "type": "array",
@@ -773,6 +785,12 @@
           },
           "page": {
             "type": "string"
+          },
+          "likes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
           },
           "localizations": {
             "type": "array",
