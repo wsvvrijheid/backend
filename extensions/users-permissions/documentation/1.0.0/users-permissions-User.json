@@ -1297,6 +1297,32 @@
                 }
               }
             }
+          },
+          "author": {
+            "required": ["id"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -1347,6 +1373,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "author": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

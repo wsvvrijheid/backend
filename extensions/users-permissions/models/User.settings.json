@@ -66,6 +66,10 @@
     "votes": {
       "via": "voter",
       "collection": "vote"
+    },
+    "author": {
+      "via": "user",
+      "model": "author"
     }
   }
 }

@@ -51,6 +51,14 @@
     "hashtag": {
       "via": "posts",
       "model": "hashtag"
+    },
+    "likes": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
     }
   }
 }

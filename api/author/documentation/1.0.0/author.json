@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/posts": {
+    "/authors": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Post"
+                    "$ref": "#/components/schemas/Author"
                   }
                 }
               }
@@ -50,7 +50,7 @@
           }
         },
         "summary": "",
-        "tags": ["Post"],
+        "tags": ["Author"],
         "parameters": [
           {
             "name": "_limit",
@@ -199,7 +199,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Post"
+                  "$ref": "#/components/schemas/Author"
                 }
               }
             }
@@ -236,21 +236,21 @@
           }
         },
         "summary": "",
-        "tags": ["Post"],
+        "tags": ["Author"],
         "requestBody": {
           "description": "",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPost"
+                "$ref": "#/components/schemas/NewAuthor"
               }
             }
           }
         }
       }
     },
-    "/posts/count": {
+    "/authors/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -301,11 +301,11 @@
           }
         },
         "summary": "",
-        "tags": ["Post"],
+        "tags": ["Author"],
         "parameters": []
       }
     },
-    "/posts/{id}": {
+    "/authors/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -315,7 +315,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Post"
+                  "$ref": "#/components/schemas/Author"
                 }
               }
             }
@@ -352,7 +352,7 @@
           }
         },
         "summary": "",
-        "tags": ["Post"],
+        "tags": ["Author"],
         "parameters": [
           {
             "name": "id",
@@ -375,7 +375,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Post"
+                  "$ref": "#/components/schemas/Author"
                 }
               }
             }
@@ -412,14 +412,14 @@
           }
         },
         "summary": "",
-        "tags": ["Post"],
+        "tags": ["Author"],
         "requestBody": {
           "description": "",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPost"
+                "$ref": "#/components/schemas/NewAuthor"
               }
             }
           }
@@ -484,7 +484,7 @@
           }
         },
         "summary": "",
-        "tags": ["Post"],
+        "tags": ["Author"],
         "parameters": [
           {
             "name": "id",
@@ -502,108 +502,58 @@
   },
   "components": {
     "schemas": {
-      "Post": {
-        "required": ["id", "title", "slug", "locale", "content"],
+      "Author": {
+        "required": ["id"],
         "properties": {
           "id": {
             "type": "string"
           },
-          "title": {
-            "type": "string"
-          },
-          "slug": {
-            "type": "uid"
-          },
-          "image": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
+          "user": {
+            "required": ["id", "username", "email"],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
+              "username": {
                 "type": "string"
               },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
+              "email": {
                 "type": "string"
               },
               "provider": {
                 "type": "string"
               },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
+              "password": {
                 "type": "string"
               },
-              "created_by": {
+              "resetPasswordToken": {
                 "type": "string"
               },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "locale": {
-            "type": "string",
-            "enum": ["nl", "en", "tr"]
-          },
-          "content": {
-            "type": "string"
-          },
-          "author": {
-            "required": ["id"],
-            "properties": {
-              "id": {
+              "confirmationToken": {
                 "type": "string"
               },
-              "user": {
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
                 "type": "string"
               },
-              "posts": {
+              "applications": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
               },
-              "published_at": {
+              "votes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "author": {
                 "type": "string"
               },
               "created_by": {
@@ -614,11 +564,50 @@
               }
             }
           },
-          "views": {
-            "type": "integer"
-          },
-          "likes": {
-            "type": "integer"
+          "posts": {
+            "type": "array",
+            "items": {
+              "required": ["id", "title", "slug", "locale", "content"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "locale": {
+                  "type": "string",
+                  "enum": ["nl", "en", "tr"]
+                },
+                "content": {
+                  "type": "string"
+                },
+                "author": {
+                  "type": "string"
+                },
+                "views": {
+                  "type": "integer"
+                },
+                "likes": {
+                  "type": "integer"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -626,30 +615,16 @@
           }
         }
       },
-      "NewPost": {
-        "required": ["title", "slug", "locale", "content"],
+      "NewAuthor": {
         "properties": {
-          "title": {
+          "user": {
             "type": "string"
           },
-          "slug": {
-            "type": "uid"
-          },
-          "locale": {
-            "type": "string",
-            "enum": ["nl", "en", "tr"]
-          },
-          "content": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
-          "views": {
-            "type": "integer"
-          },
-          "likes": {
-            "type": "integer"
+          "posts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -667,7 +642,7 @@
   },
   "tags": [
     {
-      "name": "Post"
+      "name": "Author"
     }
   ]
 }
