@@ -588,14 +588,56 @@
           "content": {
             "type": "string"
           },
+          "views": {
+            "type": "integer"
+          },
+          "likes": {
+            "type": "integer"
+          },
           "author": {
-            "required": ["id"],
+            "required": ["id", "username", "email"],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "user": {
+              "username": {
                 "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "applications": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "votes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "posts": {
                 "type": "array",
@@ -603,7 +645,10 @@
                   "type": "string"
                 }
               },
-              "published_at": {
+              "fullname": {
+                "type": "string"
+              },
+              "avatar": {
                 "type": "string"
               },
               "created_by": {
@@ -613,12 +658,6 @@
                 "type": "string"
               }
             }
-          },
-          "views": {
-            "type": "integer"
-          },
-          "likes": {
-            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -642,14 +681,14 @@
           "content": {
             "type": "string"
           },
-          "author": {
-            "type": "string"
-          },
           "views": {
             "type": "integer"
           },
           "likes": {
             "type": "integer"
+          },
+          "author": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

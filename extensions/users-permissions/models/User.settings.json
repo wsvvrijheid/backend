@@ -10,6 +10,9 @@
     "timestamps": true
   },
   "attributes": {
+    "fullname": {
+      "type": "string"
+    },
     "username": {
       "type": "string",
       "minLength": 3,
@@ -22,6 +25,14 @@
       "minLength": 6,
       "configurable": false,
       "required": true
+    },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": ["images"],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     },
     "provider": {
       "type": "string",
@@ -67,9 +78,9 @@
       "via": "voter",
       "collection": "vote"
     },
-    "author": {
-      "via": "user",
-      "model": "author"
+    "posts": {
+      "via": "author",
+      "collection": "post"
     }
   }
 }

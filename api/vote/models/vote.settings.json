@@ -17,9 +17,9 @@
       "required": true
     },
     "voter": {
+      "via": "votes",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "votes"
+      "model": "user"
     },
     "application": {
       "via": "votes",

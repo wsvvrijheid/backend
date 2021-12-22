@@ -630,7 +630,16 @@
                   "type": "string"
                 }
               },
-              "author": {
+              "posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "fullname": {
+                "type": "string"
+              },
+              "avatar": {
                 "type": "string"
               },
               "created_by": {

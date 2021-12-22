@@ -58,9 +58,9 @@
       }
     },
     "user": {
+      "via": "applications",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "applications"
+      "model": "user"
     },
     "competition": {
       "via": "applications",

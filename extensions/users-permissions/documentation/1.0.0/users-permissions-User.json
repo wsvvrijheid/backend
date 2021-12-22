@@ -1298,22 +1298,111 @@
               }
             }
           },
-          "author": {
-            "required": ["id"],
+          "posts": {
+            "type": "array",
+            "items": {
+              "required": ["id", "title", "slug", "locale", "content"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "locale": {
+                  "type": "string",
+                  "enum": ["nl", "en", "tr"]
+                },
+                "content": {
+                  "type": "string"
+                },
+                "views": {
+                  "type": "integer"
+                },
+                "likes": {
+                  "type": "integer"
+                },
+                "author": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "fullname": {
+            "type": "string"
+          },
+          "avatar": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "user": {
+              "name": {
                 "type": "string"
               },
-              "posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+              "alternativeText": {
+                "type": "string"
               },
-              "published_at": {
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
                 "type": "string"
               },
               "created_by": {
@@ -1374,7 +1463,13 @@
               "type": "string"
             }
           },
-          "author": {
+          "posts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fullname": {
             "type": "string"
           },
           "created_by": {
