@@ -589,10 +589,12 @@
             "type": "string"
           },
           "views": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "likes": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "author": {
             "required": ["id", "username", "email"],
@@ -600,10 +602,16 @@
               "id": {
                 "type": "string"
               },
+              "fullname": {
+                "type": "string"
+              },
               "username": {
                 "type": "string"
               },
               "email": {
+                "type": "string"
+              },
+              "avatar": {
                 "type": "string"
               },
               "provider": {
@@ -645,12 +653,6 @@
                   "type": "string"
                 }
               },
-              "fullname": {
-                "type": "string"
-              },
-              "avatar": {
-                "type": "string"
-              },
               "created_by": {
                 "type": "string"
               },
@@ -682,10 +684,12 @@
             "type": "string"
           },
           "views": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "likes": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "author": {
             "type": "string"

@@ -38,10 +38,12 @@
       "required": true
     },
     "views": {
-      "type": "integer"
+      "type": "integer",
+      "default": 0
     },
     "likes": {
-      "type": "integer"
+      "type": "integer",
+      "default": 0
     },
     "author": {
       "via": "posts",

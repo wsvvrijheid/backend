@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/22/2021 9:23:58 PM"
+    "x-generation-date": "12/28/2021 7:14:16 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -9118,7 +9118,8 @@
             }
           },
           "likes": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "localizations": {
             "type": "array",
@@ -9187,7 +9188,8 @@
             "type": "string"
           },
           "likes": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "localizations": {
             "type": "array",
@@ -10106,10 +10108,12 @@
             "type": "string"
           },
           "views": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "likes": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "author": {
             "required": ["id", "username", "email"],
@@ -10117,10 +10121,16 @@
               "id": {
                 "type": "string"
               },
+              "fullname": {
+                "type": "string"
+              },
               "username": {
                 "type": "string"
               },
               "email": {
+                "type": "string"
+              },
+              "avatar": {
                 "type": "string"
               },
               "provider": {
@@ -10162,12 +10172,6 @@
                   "type": "string"
                 }
               },
-              "fullname": {
-                "type": "string"
-              },
-              "avatar": {
-                "type": "string"
-              },
               "created_by": {
                 "type": "string"
               },
@@ -10199,10 +10203,12 @@
             "type": "string"
           },
           "views": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "likes": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "author": {
             "type": "string"
@@ -10552,10 +10558,12 @@
             }
           },
           "likes": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "views": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "localizations": {
             "type": "array",
@@ -10668,10 +10676,12 @@
             "type": "string"
           },
           "likes": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "views": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "localizations": {
             "type": "array",

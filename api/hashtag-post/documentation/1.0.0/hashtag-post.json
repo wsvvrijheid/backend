@@ -660,7 +660,8 @@
             }
           },
           "likes": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "localizations": {
             "type": "array",
@@ -729,7 +730,8 @@
             "type": "string"
           },
           "likes": {
-            "type": "integer"
+            "type": "integer",
+            "default": 0
           },
           "localizations": {
             "type": "array",
