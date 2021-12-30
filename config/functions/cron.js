@@ -91,7 +91,10 @@ module.exports = {
               }
             })
 
-            await strapi.services.hashtag.update({ id }, { tweets: result })
+            await strapi.services.hashtag.update(
+              { id },
+              { tweets: mappedTweets },
+            )
           }
         } catch (error) {
           console.log(`Error while searching tweets`, error)
