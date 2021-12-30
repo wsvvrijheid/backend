@@ -603,6 +603,9 @@
           "hashtag_extra": {
             "type": "string"
           },
+          "tweets": {
+            "type": "object"
+          },
           "page": {
             "required": ["id", "title", "slug", "content", "image", "type"],
             "properties": {
@@ -750,6 +753,9 @@
                 "hashtag_extra": {
                   "type": "string"
                 },
+                "tweets": {
+                  "type": "object"
+                },
                 "page": {
                   "type": "string"
                 },
@@ -811,6 +817,9 @@
           },
           "hashtag_extra": {
             "type": "string"
+          },
+          "tweets": {
+            "type": "object"
           },
           "page": {
             "type": "string"

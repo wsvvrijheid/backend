@@ -755,6 +755,9 @@
                 "hashtag_extra": {
                   "type": "string"
                 },
+                "tweets": {
+                  "type": "object"
+                },
                 "page": {
                   "type": "string"
                 },

@@ -83,6 +83,14 @@
       },
       "type": "string"
     },
+    "tweets": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "json"
+    },
     "page": {
       "via": "hashtags",
       "model": "page"
