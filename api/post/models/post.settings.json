@@ -49,6 +49,11 @@
       "via": "posts",
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "translator": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "translated_posts"
     }
   }
 }

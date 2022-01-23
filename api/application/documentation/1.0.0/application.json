@@ -591,10 +591,16 @@
               "id": {
                 "type": "string"
               },
+              "fullname": {
+                "type": "string"
+              },
               "username": {
                 "type": "string"
               },
               "email": {
+                "type": "string"
+              },
+              "avatar": {
                 "type": "string"
               },
               "provider": {
@@ -636,11 +642,35 @@
                   "type": "string"
                 }
               },
-              "fullname": {
-                "type": "string"
+              "translated_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
-              "avatar": {
-                "type": "string"
+              "translated_subpages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_hashtags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_articles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "createed_articles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
