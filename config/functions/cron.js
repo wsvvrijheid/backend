@@ -32,7 +32,7 @@ module.exports = {
       )
     },
   },
-  '*/5 * * * *': {
+  '*/1 * * * *': {
     task: async () => {
       const date = new Date(
         new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
@@ -48,13 +48,15 @@ module.exports = {
 
           const result = await strapi.hook.twitter.searchTweets(hashtag)
 
+          console.log(`result`, result)
+
           if (result && result.statuses) {
             const tweets = result.statuses
             const mappedTweets = tweets.map(data => {
               let image = undefined
               let videos = undefined
 
-              const id = data.id
+              const id = data.id_str
               const { name, screen_name, profile_image_url_https } = data.user
               const user = {
                 name,

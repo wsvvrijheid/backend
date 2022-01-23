@@ -641,6 +641,9 @@
                 "views": {
                   "type": "integer"
                 },
+                "translator": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -766,6 +769,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "translator": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
