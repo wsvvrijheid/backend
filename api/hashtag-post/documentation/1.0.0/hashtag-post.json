@@ -642,6 +642,9 @@
                   "type": "string"
                 }
               },
+              "translator": {
+                "type": "string"
+              },
               "localizations": {
                 "type": "array",
                 "items": {

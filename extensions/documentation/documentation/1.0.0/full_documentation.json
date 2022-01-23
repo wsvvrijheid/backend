@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/29/2021 11:17:10 PM"
+    "x-generation-date": "01/23/2022 9:04:15 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8398,10 +8398,16 @@
               "id": {
                 "type": "string"
               },
+              "fullname": {
+                "type": "string"
+              },
               "username": {
                 "type": "string"
               },
               "email": {
+                "type": "string"
+              },
+              "avatar": {
                 "type": "string"
               },
               "provider": {
@@ -8443,11 +8449,23 @@
                   "type": "string"
                 }
               },
-              "fullname": {
-                "type": "string"
+              "translated_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
-              "avatar": {
-                "type": "string"
+              "translated_subpages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_hashtags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -9088,17 +9106,20 @@
               "hashtag_extra": {
                 "type": "string"
               },
-              "page": {
-                "type": "string"
-              },
               "tweets": {
                 "type": "object"
+              },
+              "page": {
+                "type": "string"
               },
               "posts": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
+              },
+              "translator": {
+                "type": "string"
               },
               "localizations": {
                 "type": "array",
@@ -9316,6 +9337,9 @@
           "hashtag_extra": {
             "type": "string"
           },
+          "tweets": {
+            "type": "object"
+          },
           "page": {
             "required": ["id", "title", "slug", "content", "image", "type"],
             "properties": {
@@ -9426,8 +9450,88 @@
               }
             }
           },
-          "tweets": {
-            "type": "object"
+          "translator": {
+            "required": ["id", "username", "email"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "fullname": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "avatar": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "applications": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "votes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_subpages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_hashtags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           },
           "localizations": {
             "type": "array",
@@ -9477,6 +9581,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "translator": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -9542,6 +9649,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "translator": {
+            "type": "string"
           },
           "localizations": {
             "type": "array",
@@ -9756,6 +9866,9 @@
                 "views": {
                   "type": "integer"
                 },
+                "translator": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -9881,6 +9994,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "translator": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -10187,6 +10303,107 @@
                   "type": "string"
                 }
               },
+              "translated_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_subpages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_hashtags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "translator": {
+            "required": ["id", "username", "email"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "fullname": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "avatar": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "applications": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "votes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_subpages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_hashtags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -10226,6 +10443,9 @@
             "default": 0
           },
           "author": {
+            "type": "string"
+          },
+          "translator": {
             "type": "string"
           },
           "published_at": {
@@ -10580,6 +10800,89 @@
             "type": "integer",
             "default": 0
           },
+          "translator": {
+            "required": ["id", "username", "email"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "fullname": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "avatar": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "applications": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "votes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_subpages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_hashtags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -10632,6 +10935,9 @@
                 },
                 "views": {
                   "type": "integer"
+                },
+                "translator": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -10697,6 +11003,9 @@
           "views": {
             "type": "integer",
             "default": 0
+          },
+          "translator": {
+            "type": "string"
           },
           "localizations": {
             "type": "array",
@@ -10942,10 +11251,16 @@
               "id": {
                 "type": "string"
               },
+              "fullname": {
+                "type": "string"
+              },
               "username": {
                 "type": "string"
               },
               "email": {
+                "type": "string"
+              },
+              "avatar": {
                 "type": "string"
               },
               "provider": {
@@ -10987,11 +11302,23 @@
                   "type": "string"
                 }
               },
-              "fullname": {
-                "type": "string"
+              "translated_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
-              "avatar": {
-                "type": "string"
+              "translated_subpages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_hashtags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -11140,10 +11467,16 @@
                 "id": {
                   "type": "string"
                 },
+                "fullname": {
+                  "type": "string"
+                },
                 "username": {
                   "type": "string"
                 },
                 "email": {
+                  "type": "string"
+                },
+                "avatar": {
                   "type": "string"
                 },
                 "provider": {
@@ -11185,11 +11518,23 @@
                     "type": "string"
                   }
                 },
-                "fullname": {
-                  "type": "string"
+                "translated_posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
-                "avatar": {
-                  "type": "string"
+                "translated_subpages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "translated_hashtags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -11241,6 +11586,9 @@
           "id": {
             "type": "string"
           },
+          "fullname": {
+            "type": "string"
+          },
           "username": {
             "type": "string",
             "minLength": 3
@@ -11248,6 +11596,73 @@
           "email": {
             "type": "string",
             "minLength": 6
+          },
+          "avatar": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           },
           "provider": {
             "type": "string"
@@ -11410,6 +11825,9 @@
                 "author": {
                   "type": "string"
                 },
+                "translator": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -11422,73 +11840,201 @@
               }
             }
           },
-          "fullname": {
-            "type": "string"
+          "translated_posts": {
+            "type": "array",
+            "items": {
+              "required": ["id", "title", "slug", "locale", "content"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "locale": {
+                  "type": "string",
+                  "enum": ["nl", "en", "tr"]
+                },
+                "content": {
+                  "type": "string"
+                },
+                "views": {
+                  "type": "integer"
+                },
+                "likes": {
+                  "type": "integer"
+                },
+                "author": {
+                  "type": "string"
+                },
+                "translator": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
-          "avatar": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+          "translated_subpages": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "title",
+                "slug",
+                "content",
+                "type",
+                "start",
+                "image"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "announcement",
+                    "competition",
+                    "event",
+                    "hashtag",
+                    "news"
+                  ]
+                },
+                "start": {
+                  "type": "string"
+                },
+                "end": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "page": {
+                  "type": "string"
+                },
+                "likes": {
+                  "type": "integer"
+                },
+                "views": {
+                  "type": "integer"
+                },
+                "translator": {
+                  "type": "string"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "translated_hashtags": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "title",
+                "slug",
+                "content",
+                "image",
+                "date",
+                "hashtag"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "hashtag": {
+                  "type": "string"
+                },
+                "hashtag_extra": {
+                  "type": "string"
+                },
+                "tweets": {
+                  "type": "object"
+                },
+                "page": {
+                  "type": "string"
+                },
+                "posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "translator": {
+                  "type": "string"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -11497,6 +12043,9 @@
       "NewUsersPermissionsUser": {
         "required": ["username", "email"],
         "properties": {
+          "fullname": {
+            "type": "string"
+          },
           "username": {
             "type": "string",
             "minLength": 3
@@ -11548,8 +12097,23 @@
               "type": "string"
             }
           },
-          "fullname": {
-            "type": "string"
+          "translated_posts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "translated_subpages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "translated_hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"

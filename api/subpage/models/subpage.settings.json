@@ -104,6 +104,11 @@
       },
       "type": "integer",
       "default": 0
+    },
+    "translator": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "translated_subpages"
     }
   }
 }

@@ -678,6 +678,89 @@
             "type": "integer",
             "default": 0
           },
+          "translator": {
+            "required": ["id", "username", "email"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "fullname": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "avatar": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "applications": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "votes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_subpages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_hashtags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -730,6 +813,9 @@
                 },
                 "views": {
                   "type": "integer"
+                },
+                "translator": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -795,6 +881,9 @@
           "views": {
             "type": "integer",
             "default": 0
+          },
+          "translator": {
+            "type": "string"
           },
           "localizations": {
             "type": "array",

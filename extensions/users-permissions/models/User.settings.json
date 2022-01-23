@@ -81,6 +81,18 @@
     "posts": {
       "via": "author",
       "collection": "post"
+    },
+    "translated_posts": {
+      "via": "translator",
+      "collection": "post"
+    },
+    "translated_subpages": {
+      "via": "translator",
+      "collection": "subpage"
+    },
+    "translated_hashtags": {
+      "via": "translator",
+      "collection": "hashtag"
     }
   }
 }

@@ -98,6 +98,11 @@
     "posts": {
       "via": "hashtag",
       "collection": "hashtag-post"
+    },
+    "translator": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "translated_hashtags"
     }
   }
 }
