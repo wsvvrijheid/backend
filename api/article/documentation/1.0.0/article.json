@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/posts": {
+    "/articles": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Post"
+                    "$ref": "#/components/schemas/Article"
                   }
                 }
               }
@@ -50,7 +50,7 @@
           }
         },
         "summary": "",
-        "tags": ["Post"],
+        "tags": ["Article"],
         "parameters": [
           {
             "name": "_limit",
@@ -199,7 +199,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Post"
+                  "$ref": "#/components/schemas/Article"
                 }
               }
             }
@@ -236,21 +236,21 @@
           }
         },
         "summary": "",
-        "tags": ["Post"],
+        "tags": ["Article"],
         "requestBody": {
           "description": "",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPost"
+                "$ref": "#/components/schemas/NewArticle"
               }
             }
           }
         }
       }
     },
-    "/posts/count": {
+    "/articles/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -301,11 +301,11 @@
           }
         },
         "summary": "",
-        "tags": ["Post"],
+        "tags": ["Article"],
         "parameters": []
       }
     },
-    "/posts/{id}": {
+    "/articles/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -315,7 +315,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Post"
+                  "$ref": "#/components/schemas/Article"
                 }
               }
             }
@@ -352,7 +352,7 @@
           }
         },
         "summary": "",
-        "tags": ["Post"],
+        "tags": ["Article"],
         "parameters": [
           {
             "name": "id",
@@ -375,7 +375,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Post"
+                  "$ref": "#/components/schemas/Article"
                 }
               }
             }
@@ -412,14 +412,14 @@
           }
         },
         "summary": "",
-        "tags": ["Post"],
+        "tags": ["Article"],
         "requestBody": {
           "description": "",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPost"
+                "$ref": "#/components/schemas/NewArticle"
               }
             }
           }
@@ -484,7 +484,7 @@
           }
         },
         "summary": "",
-        "tags": ["Post"],
+        "tags": ["Article"],
         "parameters": [
           {
             "name": "id",
@@ -502,8 +502,8 @@
   },
   "components": {
     "schemas": {
-      "Post": {
-        "required": ["id", "title", "slug", "locale", "content"],
+      "Article": {
+        "required": ["id"],
         "properties": {
           "id": {
             "type": "string"
@@ -514,182 +514,8 @@
           "slug": {
             "type": "uid"
           },
-          "image": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "locale": {
-            "type": "string",
-            "enum": ["nl", "en", "tr"]
-          },
           "content": {
             "type": "string"
-          },
-          "views": {
-            "type": "integer",
-            "default": 0
-          },
-          "likes": {
-            "type": "integer",
-            "default": 0
-          },
-          "author": {
-            "required": ["id", "username", "email"],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "fullname": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "avatar": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmationToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "applications": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "votes": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "translated_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "translated_subpages": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "translated_hashtags": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "translated_articles": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "createed_articles": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
           },
           "translator": {
             "required": ["id", "username", "email"],
@@ -785,6 +611,148 @@
                 "type": "string"
               }
             }
+          },
+          "creator": {
+            "required": ["id", "username", "email"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "fullname": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "avatar": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "applications": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "votes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_subpages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_hashtags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "translated_articles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "createed_articles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "required": ["id"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "translator": {
+                  "type": "string"
+                },
+                "creator": {
+                  "type": "string"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "locale": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -792,8 +760,7 @@
           }
         }
       },
-      "NewPost": {
-        "required": ["title", "slug", "locale", "content"],
+      "NewArticle": {
         "properties": {
           "title": {
             "type": "string"
@@ -801,25 +768,22 @@
           "slug": {
             "type": "uid"
           },
-          "locale": {
-            "type": "string",
-            "enum": ["nl", "en", "tr"]
-          },
           "content": {
             "type": "string"
           },
-          "views": {
-            "type": "integer",
-            "default": 0
-          },
-          "likes": {
-            "type": "integer",
-            "default": 0
-          },
-          "author": {
+          "translator": {
             "type": "string"
           },
-          "translator": {
+          "creator": {
+            "type": "string"
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "locale": {
             "type": "string"
           },
           "published_at": {
@@ -838,7 +802,7 @@
   },
   "tags": [
     {
-      "name": "Post"
+      "name": "Article"
     }
   ]
 }

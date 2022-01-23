@@ -753,6 +753,18 @@
                   "type": "string"
                 }
               },
+              "translated_articles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "createed_articles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },

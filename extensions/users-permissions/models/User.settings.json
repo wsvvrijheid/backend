@@ -93,6 +93,14 @@
     "translated_hashtags": {
       "via": "translator",
       "collection": "hashtag"
+    },
+    "translated_articles": {
+      "via": "translator",
+      "collection": "article"
+    },
+    "createed_articles": {
+      "via": "creator",
+      "collection": "article"
     }
   }
 }
