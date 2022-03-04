@@ -1,5 +1,5 @@
 'use strict'
-const tesseract = require('node-tesseract-ocr')
+const { createWorker } = require('tesseract.js')
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#lifecycle-hooks)
@@ -17,17 +17,21 @@ module.exports = {
     async afterCreate(result) {
       if (result.image) {
         const imageUrl = result.image.url
+        const worker = createWorker({
+          logger: m => console.log(m),
+        })
 
         try {
-          const text = await tesseract.recognize(
+          await worker.load()
+          await worker.loadLanguage(locales[result.locale])
+          await worker.initialize(locales[result.locale])
+          const response = await worker.recognize(
             `https://samen-strapi-pr-17.onrender.com${imageUrl}`,
-            {
-              lang: locales[result.locale],
-              oem: 3,
-              psm: 3,
-            },
           )
-          await strapi.query('hashtag-post').update({ id: result.id }, { text })
+
+          await strapi
+            .query('hashtag-post')
+            .update({ id: result.id }, { text: response.data.text })
         } catch (error) {
           console.log(error)
         }
