@@ -20,7 +20,7 @@ module.exports = {
 
         try {
           const text = await tesseract.recognize(
-            `http://localhost:1337${imageUrl}`,
+            `https://samen-strapi-pr-17.onrender.com${imageUrl}`,
             {
               lang: locales[result.locale],
               oem: 3,
